@@ -1,5 +1,5 @@
 import React from 'react';
-import Checkbox from './index';
+import Checkbox from '../components/Checkbox';
 
 export const Default = () => <Checkbox>i agreed terms and condition</Checkbox>;
 export const Disabled = () => (

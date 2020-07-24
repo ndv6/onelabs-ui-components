@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './index';
+import Button from '../components/Button';
 
 export const Default = () => <Button>Default</Button>;
 export const Rounded = () => (

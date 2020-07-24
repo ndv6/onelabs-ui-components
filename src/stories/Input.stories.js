@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './index';
+import Input from '../components/Input';
 
 export const Default = () => <Input placeholder="Tap to type" label="Username" />;
 export const Disabled = () => <Input disabled placeholder="Tap to type" label="Username" />;

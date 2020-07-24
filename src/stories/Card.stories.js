@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import Card from './index';
-import Text from '../Text';
+import Card from '../components/Card';
+import Text from '../components/Text';
 
 export const Default = () => (
   <Card>

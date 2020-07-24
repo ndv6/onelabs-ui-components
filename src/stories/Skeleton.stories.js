@@ -1,5 +1,5 @@
 import React from 'react';
-import Skeleton from './index';
+import Skeleton from '../components/Skeleton';
 
 export const Default = () => <Skeleton />;
 export const WithHeightWidth = () => <Skeleton height={40} width={300} />;

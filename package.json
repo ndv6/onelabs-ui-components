@@ -16,7 +16,7 @@
     "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "compile": "build-storybook && npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__,.stories.js"
+    "compile": "build-storybook && npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
   },
   "eslintConfig": {
     "extends": "react-app"

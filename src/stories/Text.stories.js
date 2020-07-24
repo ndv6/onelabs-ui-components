@@ -1,5 +1,5 @@
 import React from 'react';
-import Text from './index';
+import Text from '../components/Text';
 
 export const Default = () => <Text>Text</Text>;
 export const Color = () => <Text color="red">Text Color Red</Text>;

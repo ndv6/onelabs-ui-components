@@ -1,5 +1,5 @@
 import React from 'react';
-import Flex from './index';
+import Flex from '../components/Flex';
 
 const defStyle = {
   padding: 20,

@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../Button';
-import Modal from './index';
+import Button from '../components/Button';
+import Modal from '../components/Modal';
 
 export function Default() {
   const [state, setstate] = React.useState(false);
