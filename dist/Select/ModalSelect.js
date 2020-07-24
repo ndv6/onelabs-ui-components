@@ -38,8 +38,8 @@ import React from 'react';
 import Input from '../Input';
 import Button from '../Button';
 import styles from './Select.module.css';
-var SearchSvg = function () { return (React.createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24", style: { marginLeft: 15 } },
-    React.createElement("path", { "fill-rule": "evenodd", d: "M19.86 18.625l-3.787-3.787c-.071-.072-.165-.109-.265-.109h-.412c.983-1.138 1.579-2.62 1.579-4.242C16.975 6.904 14.07 4 10.487 4 6.904 4 4 6.904 4 10.487c0 3.584 2.904 6.488 6.487 6.488 1.622 0 3.104-.596 4.242-1.579v.412c0 .1.04.194.11.265l3.786 3.787c.146.146.383.146.53 0l.705-.705c.146-.147.146-.384 0-.53zm-9.373-3.147c-2.757 0-4.99-2.234-4.99-4.99 0-2.758 2.233-4.99 4.99-4.99s4.99 2.232 4.99 4.99c0 2.756-2.233 4.99-4.99 4.99z" }))); };
+var SearchSvg = function () { return (React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24" },
+    React.createElement("path", { fillRule: "evenodd", d: "M19.86 18.625l-3.787-3.787c-.071-.072-.165-.109-.265-.109h-.412c.983-1.138 1.579-2.62 1.579-4.242C16.975 6.904 14.07 4 10.487 4 6.904 4 4 6.904 4 10.487c0 3.584 2.904 6.488 6.487 6.488 1.622 0 3.104-.596 4.242-1.579v.412c0 .1.04.194.11.265l3.786 3.787c.146.146.383.146.53 0l.705-.705c.146-.147.146-.384 0-.53zm-9.373-3.147c-2.757 0-4.99-2.234-4.99-4.99 0-2.758 2.233-4.99 4.99-4.99s4.99 2.232 4.99 4.99c0 2.756-2.233 4.99-4.99 4.99z" }))); };
 function asyncCall(asyncOptions, setList, setLoading) {
     return __awaiter(this, void 0, void 0, function () {
         var list, error_1;
@@ -80,7 +80,8 @@ export default function ModalSelect(props) {
     }, [props.asyncOptions]);
     return (React.createElement("div", { style: { padding: '15px 20px 0px 20px' } },
         React.createElement("label", { style: { fontWeight: 700 } }, props.label),
-        React.createElement(Input, { icon: React.createElement(SearchSvg, null), placeholder: "Tap to search", onChange: onChange }),
+        React.createElement(Input, { icon: React.createElement("span", { style: { marginLeft: 15 } },
+                React.createElement(SearchSvg, null)), placeholder: "Tap to search", onChange: onChange }),
         React.createElement("div", { style: { overflow: 'auto', height: 'calc(100vh - 130px)' } },
             list
                 .filter(function (d) {

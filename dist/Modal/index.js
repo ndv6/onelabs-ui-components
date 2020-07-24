@@ -4,8 +4,8 @@ import Button from '../Button';
 import Card from '../Card';
 import { createClassName } from '../helpers';
 import styles from './Modal.module.css';
-var ArrowSvg = function () { return (React.createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24" },
-    React.createElement("path", { fill: "#313131", "fill-rule": "evenodd", d: "M8.24 11.458l6.212-6.212c.3-.3.786-.3 1.085 0l.725.724c.3.3.3.784.001 1.084L11.34 12l4.923 4.946c.298.3.298.785-.001 1.084l-.725.725c-.3.299-.785.299-1.085 0L8.24 12.542c-.3-.3-.3-.785 0-1.084z" }))); };
+var ArrowSvg = function () { return (React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24" },
+    React.createElement("path", { fill: "#313131", fillRule: "evenodd", d: "M8.24 11.458l6.212-6.212c.3-.3.786-.3 1.085 0l.725.724c.3.3.3.784.001 1.084L11.34 12l4.923 4.946c.298.3.298.785-.001 1.084l-.725.725c-.3.299-.785.299-1.085 0L8.24 12.542c-.3-.3-.3-.785 0-1.084z" }))); };
 var classNames = createClassName(styles);
 var body = document.getElementsByTagName('body')[0];
 if (!document.getElementById('modal-portal')) {

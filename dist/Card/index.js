@@ -13,8 +13,8 @@ import React from 'react';
 import Button from '../Button';
 import Checkbox from '../Checkbox';
 import styles from './Card.module.css';
-var ArrowRightSvg = function () { return (React.createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24" },
-    React.createElement("path", { "fill-rule": "evenodd", d: "M8.748 5.13l-.625.624c-.148.147-.148.387 0 .535L13.821 12l-5.698 5.711c-.148.148-.148.388 0 .535l.625.625c.147.147.387.147.535 0l6.603-6.603c.148-.148.148-.388 0-.536L9.283 5.13c-.148-.147-.388-.147-.535 0z" }))); };
+var ArrowRightSvg = function () { return (React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24" },
+    React.createElement("path", { fillRule: "evenodd", d: "M8.748 5.13l-.625.624c-.148.147-.148.387 0 .535L13.821 12l-5.698 5.711c-.148.148-.148.388 0 .535l.625.625c.147.147.387.147.535 0l6.603-6.603c.148-.148.148-.388 0-.536L9.283 5.13c-.148-.147-.388-.147-.535 0z" }))); };
 function Card(props) {
     var children = props.children;
     var className = [styles.card];

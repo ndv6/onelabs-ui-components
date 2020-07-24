@@ -26,8 +26,8 @@ import ModalSelect from './ModalSelect';
 import Modal from '../Modal';
 import { createClassName } from '../helpers';
 import styles from './Select.module.css';
-var ArrowDown = function () { return (React.createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24" },
-    React.createElement("path", { "fill-rule": "evenodd", d: "M18.87 8.766l-.624-.624c-.148-.148-.387-.148-.536 0L12 13.84 6.29 8.142c-.149-.148-.388-.148-.536 0l-.625.624c-.148.148-.148.388 0 .536l6.603 6.603c.148.148.388.148.536 0l6.603-6.603c.148-.148.148-.388 0-.536z" }))); };
+var ArrowDown = function () { return (React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24" },
+    React.createElement("path", { fillRule: "evenodd", d: "M18.87 8.766l-.624-.624c-.148-.148-.387-.148-.536 0L12 13.84 6.29 8.142c-.149-.148-.388-.148-.536 0l-.625.624c-.148.148-.148.388 0 .536l6.603 6.603c.148.148.388.148.536 0l6.603-6.603c.148-.148.148-.388 0-.536z" }))); };
 var classNames = createClassName(styles);
 function Select(props) {
     var _a;
