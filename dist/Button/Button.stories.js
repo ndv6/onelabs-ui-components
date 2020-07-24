@@ -79,7 +79,7 @@ var Disabled = function Disabled() {
   }, "secondary Disabled"), /*#__PURE__*/_react.default.createElement(_index.default, {
     variant: "ghost",
     disabled: true
-  }, "ghost Disabled"));
+  }, "ghost Disabled"), "1");
 };
 
 exports.Disabled = Disabled;
