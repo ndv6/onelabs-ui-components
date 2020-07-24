@@ -1,0 +1,26 @@
+.checkbox {
+  display: inline-flex;
+  position: relative;
+  flex-direction: row;
+}
+
+.input {
+  position: absolute;
+  left: 0;
+  background: transparent;
+  opacity: 0;
+  top: 0;
+  width: 100%;
+  padding: 0px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.label {
+  padding-left: 10px;
+  align-self: center;
+}

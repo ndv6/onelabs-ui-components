@@ -1,0 +1,124 @@
+button {
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  outline: 0;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.primary,
+.secondary,
+.transparent,
+.ghost {
+  font-weight: 700;
+  background-image: none;
+  border-radius: var(--button-radius);
+  font-size: var(--button-font-size);
+  outline: none;
+  padding-left: 25px;
+  padding-right: 25px;
+  user-select: none;
+  border-width: 1px;
+  text-align: center;
+  font-family: inherit;
+  height: var(--button-height);
+  line-height: var(--button-height);
+  transition: all 0.2s ease-in-out;
+}
+
+.primary {
+  color: var(--white);
+  background-image: var(--primary-button-color);
+  border-color: transparent;
+}
+.secondary {
+  color: var(--white);
+  background-image: var(--secondary-button-color);
+  border-color: transparent;
+}
+.ghost {
+  color: var(--border-color);
+  border: 1px solid var(--border-color);
+  background-image: none;
+  background: var(--white);
+}
+
+.transparent {
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid var(--white);
+  color: var(--white);
+}
+
+button:disabled.primary,
+button:disabled.secondary,
+button:disabled.ghost {
+  background-color: #ececec;
+  color: #949494;
+  background-image: none;
+  pointer-events: none;
+  border: transparent;
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(1turn);
+  }
+}
+
+.loading {
+  color: transparent;
+  position: relative;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.loading::before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: 0 0;
+  border: 4px solid var(--white);
+  border-radius: 50%;
+  -webkit-clip-path: inset(0 0 50% 0);
+  clip-path: inset(0 0 50% 0);
+  transform: translate(-50%, -50%) rotate(0);
+  animation: spin 0.6s linear infinite;
+}
+
+.small {
+  height: var(--button-small);
+  line-height: var(--button-small);
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: 400;
+  font-size: var(--button-font-size-small);
+}
+
+.rounded {
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+}
+
+@media only screen and (min-width: 768px) {
+  .primary:hover {
+    background-image: var(--primary-button-color-hover);
+  }
+  .secondary:hover {
+    background-image: var(--secondary-button-color-hover);
+  }
+}

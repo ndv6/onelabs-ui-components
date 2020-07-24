@@ -16,7 +16,7 @@
     "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "build-cmps": "tsc -p lib.tsconfig.json",
+    "build-cmps": "npm run clean && tsc -p lib.tsconfig.json && copyfiles -u 2 src/components/**/*module.css dist && copyfiles -u 2 src/components/styles.css dist",
     "compile": "npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
   },
   "eslintConfig": {
