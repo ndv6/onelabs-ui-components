@@ -1,0 +1,11 @@
+.div {
+  align-items: stretch;
+  border: 0 solid #000;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+}
