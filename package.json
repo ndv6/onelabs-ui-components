@@ -16,7 +16,8 @@
     "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "compile": "build-storybook && npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
+    "build-cmps": "tsc -p lib.tsconfig.json",
+    "compile": "npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,6 +55,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "source-map-explorer": "^2.4.2",
-    "typescript": "~3.9.7"
+    "typescript": "~3.9.7",
+    "typescript-plugin-css-modules": "^2.4.0"
   }
 }
