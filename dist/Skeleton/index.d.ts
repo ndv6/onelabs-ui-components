@@ -1,6 +1,6 @@
 declare function Skeleton(props: {
-    height?: number;
-    width?: number;
+    height?: number | string;
+    width?: number | string;
     radius?: number;
 }): JSX.Element;
 export default Skeleton;
