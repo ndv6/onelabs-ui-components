@@ -51,6 +51,12 @@ function Select(props) {
         }
         setSelected(selectedValue);
     }
+    function onSelect(value) {
+        setSelected(value);
+        setShowModal(false);
+        if (onChange)
+            onChange(value);
+    }
     return (React.createElement("div", { className: classnames },
         label && (React.createElement("label", { className: styles.label },
             label,
@@ -64,10 +70,7 @@ function Select(props) {
             React.createElement(ArrowDown, null)),
         !!metaError(error) && React.createElement("div", { className: styles.errorLabel }, metaError(error)),
         showModal && (React.createElement(Modal, { title: "", onClose: function () { return setShowModal(false); }, type: "fullscreen" },
-            React.createElement(ModalSelect, { onSelect: function (value) {
-                    setSelected(value);
-                    setShowModal(false);
-                }, label: label, options: options || [], asyncOptions: asyncOptions })))));
+            React.createElement(ModalSelect, { onSelect: onSelect, label: label, options: options || [], asyncOptions: asyncOptions })))));
 }
 export default Select;
 //# sourceMappingURL=index.js.map

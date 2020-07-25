@@ -78,6 +78,12 @@ function Select(props: Props) {
     setSelected(selectedValue);
   }
 
+  function onSelect(value: any) {
+    setSelected(value);
+    setShowModal(false);
+    if (onChange) onChange(value);
+  }
+
   return (
     <div className={classnames}>
       {label && (
@@ -111,10 +117,7 @@ function Select(props: Props) {
       {showModal && (
         <Modal title="" onClose={() => setShowModal(false)} type="fullscreen">
           <ModalSelect
-            onSelect={(value: any) => {
-              setSelected(value);
-              setShowModal(false);
-            }}
+            onSelect={onSelect}
             label={label}
             options={options || []}
             asyncOptions={asyncOptions}
