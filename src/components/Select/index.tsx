@@ -60,7 +60,7 @@ function Select(props: Props) {
   const [showModal, setShowModal] = React.useState(false);
   const classnames = classNames({
     [`${className}`]: !!className,
-    error: error,
+    error: !!metaError(error),
   });
 
   React.useEffect(() => {

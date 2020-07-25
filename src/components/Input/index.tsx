@@ -29,7 +29,7 @@ function Input(props: Props) {
   const [htmlType, setHtmlType] = React.useState('');
   const classnames = classNames({
     [`${className}`]: !!className,
-    error: error,
+    error: !!metaError(error),
     disabled: props.disabled,
   });
   return (

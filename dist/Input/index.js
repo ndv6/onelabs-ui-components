@@ -33,7 +33,7 @@ function Input(props) {
     var _b = React.useState(''), htmlType = _b[0], setHtmlType = _b[1];
     var classnames = classNames((_a = {},
         _a["" + className] = !!className,
-        _a.error = error,
+        _a.error = !!metaError(error),
         _a.disabled = props.disabled,
         _a));
     return (React.createElement("div", { className: classnames },
