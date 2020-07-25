@@ -54,6 +54,7 @@
 
 .label {
   font-weight: 700;
+  font-size: var(--input-label-font-size);
 }
 
 .option {
