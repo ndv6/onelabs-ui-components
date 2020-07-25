@@ -24,6 +24,10 @@
   color: var(--input-placeholder);
 }
 
+.selected {
+  color: var(--font-color-dark);
+}
+
 @keyframes spin {
   to {
     transform: translate(-50%, -50%) rotate(1turn);
