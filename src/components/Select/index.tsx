@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import Button from '../Button';
 import ModalSelect from './ModalSelect';
 import Modal from '../Modal';
-import { createClassName } from '../helpers';
+import { createClassName, metaError } from '../helpers';
 import styles from './Select.module.css';
 
 const ArrowDown = () => (
@@ -107,9 +107,9 @@ function Select(props: Props) {
         {loading && <div className={styles.loading} />}
         <ArrowDown />
       </div>
-      {error && <div className={styles.errorLabel}>{error}</div>}
+      {!!metaError(error) && <div className={styles.errorLabel}>{metaError(error)}</div>}
       {showModal && (
-        <Modal title={label} onClose={() => setShowModal(false)} type="fullscreen">
+        <Modal title="" onClose={() => setShowModal(false)} type="fullscreen">
           <ModalSelect
             onSelect={(value: any) => {
               setSelected(value);

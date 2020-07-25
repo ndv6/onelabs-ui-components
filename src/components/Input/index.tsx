@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import Button from '../Button';
-import { createClassName } from '../helpers';
+import { createClassName, metaError } from '../helpers';
 import styles from './Input.module.css';
 
 const EyeSvg = () => (
@@ -50,7 +50,7 @@ function Input(props: Props) {
           </Button>
         )}
       </div>
-      {error && <div className={styles.errorLabel}>{error}</div>}
+      {!!metaError(error) && <div className={styles.errorLabel}>{metaError(error)}</div>}
     </div>
   );
 }
