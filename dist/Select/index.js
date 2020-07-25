@@ -57,7 +57,7 @@ function Select(props) {
             required && React.createElement("span", { className: styles.required }, "*"))),
         React.createElement("div", { className: styles.wrapper },
             !selected && placeholder && React.createElement("div", { className: styles.placeholder }, placeholder),
-            selected && React.createElement("div", { className: styles.placeholder }, selected.label),
+            selected && React.createElement("div", { className: styles.selected }, selected.label),
             native && (React.createElement("select", __assign({ onChange: nativeOnChange, value: selected ? selected.value : undefined, className: styles.nativeSelect }, rest), (options || []).map(function (d, index) { return (React.createElement("option", { key: index, value: d.value }, d.label)); }))),
             !native && React.createElement(Button, { className: styles.nativeSelect, onClick: function () { return setShowModal(true); } }),
             loading && React.createElement("div", { className: styles.loading }),
