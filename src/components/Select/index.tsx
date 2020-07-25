@@ -88,7 +88,7 @@ function Select(props: Props) {
       )}
       <div className={styles.wrapper}>
         {!selected && placeholder && <div className={styles.placeholder}>{placeholder}</div>}
-        {selected && <div className={styles.placeholder}>{selected.label}</div>}
+        {selected && <div className={styles.selected}>{selected.label}</div>}
         {native && (
           <select
             onChange={nativeOnChange}
