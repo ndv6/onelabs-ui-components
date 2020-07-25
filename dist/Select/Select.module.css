@@ -1,5 +1,6 @@
 .input,
-.placeholder {
+.placeholder,
+.selected {
   cursor: text;
   background: var(--white);
   outline: none;
