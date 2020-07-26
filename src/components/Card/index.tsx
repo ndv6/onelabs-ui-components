@@ -41,7 +41,7 @@ function Card(props: Props) {
 
   const content = (
     <>
-      <div>{children}</div>
+      {children}
       {props.withArrow && <ArrowRightSvg />}
     </>
   );
