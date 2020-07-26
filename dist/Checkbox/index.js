@@ -17,7 +17,7 @@ var UnCheckedIcon = function () { return (React.createElement("svg", { width: 24
         React.createElement("path", { fill: "#C7C7C7", d: "M12 1c6.077 0 11 4.923 11 11s-4.923 11-11 11S1 18.077 1 12 5.923 1 12 1zm0 1C6.476 2 2 6.476 2 12s4.476 10 10 10 10-4.476 10-10S17.524 2 12 2z" }),
         React.createElement("path", { fill: "#ECECEC", d: "M12 2C6.476 2 2 6.476 2 12s4.476 10 10 10 10-4.476 10-10S17.524 2 12 2z" })))); };
 function Checkbox(props) {
-    var children = props.children, disabled = props.disabled, checked = props.checked, onChange = props.onChange;
+    var children = props.children, disabled = props.disabled, size = props.size, checked = props.checked, onChange = props.onChange;
     var _a = React.useState(false), htmlChecked = _a[0], setHtmlChecked = _a[1];
     function onChangeInput() {
         if (onChange) {
@@ -34,9 +34,13 @@ function Checkbox(props) {
     if (disabled) {
         iconChecked = React.createElement(DisabledCheckedIcon, null);
     }
-    return (React.createElement("div", { className: [styles.checkbox, disabled ? styles.disabled : ''].join(' ') },
+    return (React.createElement("div", { className: [
+            styles.checkbox,
+            disabled ? styles.disabled : '',
+            size === 'small' ? styles.small : '',
+        ].join(' ') },
         React.createElement("input", { className: styles.input, checked: htmlChecked, onChange: onChangeInput, type: "checkbox" }),
-        htmlChecked ? iconChecked : iconUnChecked,
+        React.createElement("div", null, htmlChecked ? iconChecked : iconUnChecked),
         React.createElement("span", { className: styles.label }, children)));
 }
 export default Checkbox;
