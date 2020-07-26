@@ -7,6 +7,11 @@ export const Disabled = () => (
     i agreed terms and condition
   </Checkbox>
 );
+export const Small = () => (
+  <Checkbox checked size="small" disabled>
+    i agreed terms and condition
+  </Checkbox>
+);
 
 export default {
   title: 'Elements | Checkbox',

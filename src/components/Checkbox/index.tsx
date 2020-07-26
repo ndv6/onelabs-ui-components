@@ -60,10 +60,11 @@ interface Props {
   checked?: boolean;
   disabled?: boolean;
   onChange?: (args: boolean) => void;
+  size?: 'default' | 'small';
 }
 
 function Checkbox(props: Props) {
-  const { children, disabled, checked, onChange } = props;
+  const { children, disabled, size, checked, onChange } = props;
   const [htmlChecked, setHtmlChecked] = React.useState(false);
   function onChangeInput() {
     if (onChange) {
@@ -84,14 +85,20 @@ function Checkbox(props: Props) {
   }
 
   return (
-    <div className={[styles.checkbox, disabled ? styles.disabled : ''].join(' ')}>
+    <div
+      className={[
+        styles.checkbox,
+        disabled ? styles.disabled : '',
+        size === 'small' ? styles.small : '',
+      ].join(' ')}
+    >
       <input
         className={styles.input}
         checked={htmlChecked}
         onChange={onChangeInput}
         type="checkbox"
       />
-      {htmlChecked ? iconChecked : iconUnChecked}
+      <div>{htmlChecked ? iconChecked : iconUnChecked}</div>
 
       <span className={styles.label}>{children}</span>
     </div>
