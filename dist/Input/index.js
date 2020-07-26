@@ -29,7 +29,7 @@ var EyeSvg = function () { return (React.createElement("svg", { width: 26, heigh
 var classNames = createClassName(styles);
 function Input(props) {
     var _a;
-    var children = props.children, label = props.label, className = props.className, loading = props.loading, error = props.error, type = props.type, icon = props.icon, required = props.required, rest = __rest(props, ["children", "label", "className", "loading", "error", "type", "icon", "required"]);
+    var children = props.children, label = props.label, className = props.className, loading = props.loading, error = props.error, type = props.type, icon = props.icon, required = props.required, innerRef = props.innerRef, rest = __rest(props, ["children", "label", "className", "loading", "error", "type", "icon", "required", "innerRef"]);
     var _b = React.useState(''), htmlType = _b[0], setHtmlType = _b[1];
     var classnames = classNames((_a = {},
         _a["" + className] = !!className,
@@ -41,7 +41,7 @@ function Input(props) {
             label,
             required && React.createElement("span", { className: styles.required }, "*"))),
         React.createElement("div", { className: styles.wrapper },
-            React.createElement("input", __assign({ type: htmlType || type }, rest)),
+            React.createElement("input", __assign({ ref: innerRef, type: htmlType || type }, rest)),
             loading && React.createElement("div", { className: styles.loading }),
             icon,
             type === 'password' && (React.createElement(Button, { onClick: function () { return setHtmlType(function (prev) { return (prev === 'text' ? 'password' : 'text'); }); } },

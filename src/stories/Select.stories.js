@@ -36,6 +36,34 @@ export const AsyncOptions = () => (
     label="Pilih Data"
   />
 );
+export const AsyncOnSearch = () => (
+  <Select
+    asyncOnSearch={keyword =>
+      fetch(
+        'https://raw.githubusercontent.com/substack/provinces/master/provinces.json?id=' + keyword,
+      ).then(async res => {
+        const json = await res.json();
+        return json.map(d => ({ label: d.name, value: d.name }));
+      })
+    }
+    placeholder="Tap to select"
+    label="Pilih Data"
+  />
+);
+
+export const OnFilter = () => (
+  <Select
+    onFilter={(keyword, data) => {
+      if (keyword == '') {
+        return MOCK_DATA;
+      }
+      return data.filter(d => d.label.includes(keyword));
+    }}
+    options={MOCK_DATA}
+    placeholder="Tap to select"
+    label="Pilih Data"
+  />
+);
 
 export default {
   title: 'Elements | Select',

@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import Input from '../Input';
 import Button from '../Button';
 import styles from './Select.module.css';
+import { debounce } from '../helpers';
 
 const SearchSvg = () => (
   <svg width={24} height={24} viewBox="0 0 24 24">
@@ -12,11 +13,7 @@ const SearchSvg = () => (
   </svg>
 );
 
-async function asyncCall(
-  asyncOptions: () => Promise<any[]>,
-  setList: Function,
-  setLoading: Function,
-) {
+async function asyncCall(asyncOptions: () => any, setList: Function, setLoading: Function) {
   setLoading(true);
   try {
     const list = await asyncOptions();
@@ -28,16 +25,46 @@ async function asyncCall(
   }
 }
 
+interface Option {
+  label: string | ReactNode;
+  value: any;
+}
+
 export default function ModalSelect(props: {
   onSelect: Function;
   asyncOptions?: () => Promise<any[]>;
+  asyncOnSearch?: (keyword: string) => Promise<Option[]>;
+  onFilter?: (keyword: string, args: Option[]) => Option[];
   options: any;
   label: string | ReactNode;
 }) {
+  const inputRef: any = React.useRef(null);
   const [list, setList] = React.useState(props.options || []);
   const [keyword, setKeyword] = React.useState('');
   const [loading, setLoading] = React.useState(false);
-  function onChange(e: any) {
+
+  const asyncOnSearchDebounce = debounce(function() {
+    asyncCall(
+      () => {
+        if (props.asyncOnSearch) {
+          return props.asyncOnSearch(inputRef.current.value || '');
+        }
+        return [];
+      },
+      setList,
+      setLoading,
+    );
+  }, 500);
+
+  async function onChange(e: any) {
+    if (props.asyncOnSearch) {
+      asyncOnSearchDebounce();
+      return;
+    }
+    if (props.onFilter) {
+      setList(props.onFilter(e.target.value, list));
+      return;
+    }
     setKeyword(e.target.value);
   }
 
@@ -50,11 +77,13 @@ export default function ModalSelect(props: {
     <div style={{ padding: '15px 20px 0px 20px' }}>
       <label style={{ fontWeight: 700 }}>{props.label}</label>
       <Input
+        innerRef={inputRef}
         icon={
           <span style={{ marginLeft: 15 }}>
             <SearchSvg />
           </span>
         }
+        id="ui-search-input"
         placeholder="Tap to search"
         onChange={onChange}
       />
@@ -72,7 +101,9 @@ export default function ModalSelect(props: {
             </Button>
           ))}
         {list.length < 1 && !loading && (
-          <div style={{ padding: 30, textAlign: 'center' }}>Data not found</div>
+          <div style={{ padding: 30, textAlign: 'center' }}>
+            {props.asyncOnSearch ? 'Type to search' : 'Data not found'}
+          </div>
         )}
         {loading && <div style={{ padding: 30, textAlign: 'center' }}>Loading...</div>}
       </div>

@@ -22,10 +22,22 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   loading?: boolean;
   required?: boolean;
   icon?: any;
+  innerRef?: any;
 }
 
 function Input(props: Props) {
-  const { children, label, className, loading, error, type, icon, required, ...rest } = props;
+  const {
+    children,
+    label,
+    className,
+    loading,
+    error,
+    type,
+    icon,
+    required,
+    innerRef,
+    ...rest
+  } = props;
   const [htmlType, setHtmlType] = React.useState('');
   const classnames = classNames({
     [`${className}`]: !!className,
@@ -41,7 +53,7 @@ function Input(props: Props) {
         </label>
       )}
       <div className={styles.wrapper}>
-        <input type={htmlType || type} {...rest} />
+        <input ref={innerRef} type={htmlType || type} {...rest} />
         {loading && <div className={styles.loading} />}
         {icon}
         {type === 'password' && (

@@ -6,6 +6,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     loading?: boolean;
     required?: boolean;
     icon?: any;
+    innerRef?: any;
 }
 declare function Input(props: Props): JSX.Element;
 export default Input;

@@ -36,6 +36,8 @@ interface Props
   native?: boolean;
   options?: Option[];
   asyncOptions?: () => Promise<Option[]>;
+  asyncOnSearch?: (keyword: string) => Promise<Option[]>;
+  onFilter?: (keyword: string, args: Option[]) => Option[];
   loading?: boolean;
   required?: boolean;
 }
@@ -52,6 +54,8 @@ function Select(props: Props) {
     value,
     options,
     asyncOptions,
+    asyncOnSearch,
+    onFilter,
     defaultValue,
     native,
     ...rest
@@ -121,6 +125,8 @@ function Select(props: Props) {
             label={label}
             options={options || []}
             asyncOptions={asyncOptions}
+            asyncOnSearch={asyncOnSearch}
+            onFilter={onFilter}
           />
         </Modal>
       )}

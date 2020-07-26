@@ -15,3 +15,26 @@ export const metaError = (meta: string | any) => {
   }
   return '';
 };
+
+const newLocal = this;
+export const debounce = (func: Function, wait: number, immediate?: boolean) => {
+  var timeout: any;
+
+  return function executedFunction() {
+    var context: any = newLocal;
+    var args: any = arguments;
+
+    var later: any = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+
+    var callNow: any = immediate && !timeout;
+
+    clearTimeout(timeout);
+
+    timeout = setTimeout(later, wait);
+
+    if (callNow) func.apply(context, args);
+  };
+};

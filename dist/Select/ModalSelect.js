@@ -38,6 +38,7 @@ import React from 'react';
 import Input from '../Input';
 import Button from '../Button';
 import styles from './Select.module.css';
+import { debounce } from '../helpers';
 var SearchSvg = function () { return (React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24" },
     React.createElement("path", { fillRule: "evenodd", d: "M19.86 18.625l-3.787-3.787c-.071-.072-.165-.109-.265-.109h-.412c.983-1.138 1.579-2.62 1.579-4.242C16.975 6.904 14.07 4 10.487 4 6.904 4 4 6.904 4 10.487c0 3.584 2.904 6.488 6.487 6.488 1.622 0 3.104-.596 4.242-1.579v.412c0 .1.04.194.11.265l3.786 3.787c.146.146.383.146.53 0l.705-.705c.146-.147.146-.384 0-.53zm-9.373-3.147c-2.757 0-4.99-2.234-4.99-4.99 0-2.758 2.233-4.99 4.99-4.99s4.99 2.232 4.99 4.99c0 2.756-2.233 4.99-4.99 4.99z" }))); };
 function asyncCall(asyncOptions, setList, setLoading) {
@@ -67,11 +68,33 @@ function asyncCall(asyncOptions, setList, setLoading) {
     });
 }
 export default function ModalSelect(props) {
+    var inputRef = React.useRef(null);
     var _a = React.useState(props.options || []), list = _a[0], setList = _a[1];
     var _b = React.useState(''), keyword = _b[0], setKeyword = _b[1];
     var _c = React.useState(false), loading = _c[0], setLoading = _c[1];
+    var asyncOnSearchDebounce = debounce(function () {
+        asyncCall(function () {
+            if (props.asyncOnSearch) {
+                return props.asyncOnSearch(inputRef.current.value || '');
+            }
+            return [];
+        }, setList, setLoading);
+    }, 500);
     function onChange(e) {
-        setKeyword(e.target.value);
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                if (props.asyncOnSearch) {
+                    asyncOnSearchDebounce();
+                    return [2 /*return*/];
+                }
+                if (props.onFilter) {
+                    setList(props.onFilter(e.target.value, list));
+                    return [2 /*return*/];
+                }
+                setKeyword(e.target.value);
+                return [2 /*return*/];
+            });
+        });
     }
     React.useEffect(function () {
         if (props.asyncOptions) {
@@ -80,8 +103,8 @@ export default function ModalSelect(props) {
     }, [props.asyncOptions]);
     return (React.createElement("div", { style: { padding: '15px 20px 0px 20px' } },
         React.createElement("label", { style: { fontWeight: 700 } }, props.label),
-        React.createElement(Input, { icon: React.createElement("span", { style: { marginLeft: 15 } },
-                React.createElement(SearchSvg, null)), placeholder: "Tap to search", onChange: onChange }),
+        React.createElement(Input, { innerRef: inputRef, icon: React.createElement("span", { style: { marginLeft: 15 } },
+                React.createElement(SearchSvg, null)), id: "ui-search-input", placeholder: "Tap to search", onChange: onChange }),
         React.createElement("div", { style: { overflow: 'auto', height: 'calc(100vh - 130px)' } },
             list
                 .filter(function (d) {
@@ -91,7 +114,7 @@ export default function ModalSelect(props) {
                     .includes(keyword.toLowerCase());
             })
                 .map(function (d, i) { return (React.createElement(Button, { key: i, onClick: function () { return props.onSelect(d); }, className: styles.option, full: true }, d.label)); }),
-            list.length < 1 && !loading && (React.createElement("div", { style: { padding: 30, textAlign: 'center' } }, "Data not found")),
+            list.length < 1 && !loading && (React.createElement("div", { style: { padding: 30, textAlign: 'center' } }, props.asyncOnSearch ? 'Type to search' : 'Data not found')),
             loading && React.createElement("div", { style: { padding: 30, textAlign: 'center' } }, "Loading..."))));
 }
 //# sourceMappingURL=ModalSelect.js.map
