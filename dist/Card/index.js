@@ -28,7 +28,7 @@ function Card(props) {
         children = (React.createElement(Checkbox, { checked: props.checked, disabled: props.disabled, onChange: props.onClick }, props.children));
     }
     var content = (React.createElement(React.Fragment, null,
-        React.createElement("div", null, children),
+        children,
         props.withArrow && React.createElement(ArrowRightSvg, null)));
     if (props.onClick) {
         return (React.createElement(Button, { style: props.style, full: true, onClick: props.onClick, className: className.join(' ') }, content));
