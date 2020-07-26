@@ -31,7 +31,7 @@ var ArrowDown = function () { return (React.createElement("svg", { width: 24, he
 var classNames = createClassName(styles);
 function Select(props) {
     var _a;
-    var label = props.label, className = props.className, loading = props.loading, error = props.error, required = props.required, placeholder = props.placeholder, onChange = props.onChange, value = props.value, options = props.options, asyncOptions = props.asyncOptions, defaultValue = props.defaultValue, native = props.native, rest = __rest(props, ["label", "className", "loading", "error", "required", "placeholder", "onChange", "value", "options", "asyncOptions", "defaultValue", "native"]);
+    var label = props.label, className = props.className, loading = props.loading, error = props.error, required = props.required, placeholder = props.placeholder, onChange = props.onChange, value = props.value, options = props.options, asyncOptions = props.asyncOptions, asyncOnSearch = props.asyncOnSearch, onFilter = props.onFilter, defaultValue = props.defaultValue, native = props.native, rest = __rest(props, ["label", "className", "loading", "error", "required", "placeholder", "onChange", "value", "options", "asyncOptions", "asyncOnSearch", "onFilter", "defaultValue", "native"]);
     var _b = React.useState(defaultValue || undefined), selected = _b[0], setSelected = _b[1];
     var _c = React.useState(false), showModal = _c[0], setShowModal = _c[1];
     var classnames = classNames((_a = {},
@@ -70,7 +70,7 @@ function Select(props) {
             React.createElement(ArrowDown, null)),
         !!metaError(error) && React.createElement("div", { className: styles.errorLabel }, metaError(error)),
         showModal && (React.createElement(Modal, { title: "", onClose: function () { return setShowModal(false); }, type: "fullscreen" },
-            React.createElement(ModalSelect, { onSelect: onSelect, label: label, options: options || [], asyncOptions: asyncOptions })))));
+            React.createElement(ModalSelect, { onSelect: onSelect, label: label, options: options || [], asyncOptions: asyncOptions, asyncOnSearch: asyncOnSearch, onFilter: onFilter })))));
 }
 export default Select;
 //# sourceMappingURL=index.js.map
