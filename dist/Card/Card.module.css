@@ -51,4 +51,8 @@
     border-radius: 8px;
     background: var(--card-active-color);
   }
+
+  .card.hasHover.disabled {
+    border: 4px solid var(--card-disabled);
+  }
 }
