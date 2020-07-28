@@ -7,12 +7,12 @@ export var createClassName = function (styles) { return function (classList) {
     return newClassList.join(' ');
 }; };
 export var metaError = function (meta) {
-    if (typeof meta === 'string') {
+    if (typeof meta === 'string')
         return meta;
-    }
-    if (meta && meta.error && meta.touched) {
-        return meta.submitError || meta.error;
-    }
+    if (!meta.error)
+        return meta || '';
+    if ((meta.error || meta.submitError) && meta.touched)
+        return meta.error || meta.submitError;
     return '';
 };
 var newLocal = this;

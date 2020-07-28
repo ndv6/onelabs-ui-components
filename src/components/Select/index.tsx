@@ -31,7 +31,7 @@ interface Props
     }
   > {
   label?: string | ReactNode;
-  error?: string | ReactNode | undefined;
+  error?: any;
   className?: string;
   native?: boolean;
   options?: Option[];

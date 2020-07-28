@@ -9,7 +9,7 @@ interface Props extends Modify<React.SelectHTMLAttributes<HTMLSelectElement>, {
     value?: Option;
 }> {
     label?: string | ReactNode;
-    error?: string | ReactNode | undefined;
+    error?: any;
     className?: string;
     native?: boolean;
     options?: Option[];
