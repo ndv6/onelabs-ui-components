@@ -9,9 +9,10 @@ export var createClassName = function (styles) { return function (classList) {
 export var metaError = function (meta) {
     if (typeof meta === 'string')
         return meta;
+    if (!meta)
+        return '';
     if ((meta.error || meta.submitError) && meta.touched)
         return meta.error || meta.submitError;
-    return '';
 };
 var newLocal = this;
 export var debounce = function (func, wait, immediate) {
