@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string | ReactNode;
-    error?: string | ReactNode | undefined;
+    error?: any;
     className?: string;
     loading?: boolean;
     required?: boolean;
