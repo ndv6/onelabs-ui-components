@@ -18,7 +18,7 @@ An example:
 
 ```jsx
 import React from 'react';
-import { Button } from 'ocbc-ui-components';
+import { Button } from 'onelabs-ui-components';
 
 ReactDOM.render(
     <div>
