@@ -47,6 +47,7 @@ html {
 
   /* INPUT */
   --input-placeholder: #c7c7c7;
+  --input-label-font-size: 16px;
 
   /* CARD */
   --card-disabled: #ececec;
@@ -293,6 +294,7 @@ button:disabled.Button_ghost__3LY19 {
 .Checkbox_checkbox__2DiPf {
   display: inline-flex;
   position: relative;
+  flex-direction: row;
 }
 
 .Checkbox_input__3UVZJ {
@@ -305,6 +307,11 @@ button:disabled.Button_ghost__3LY19 {
   padding: 0px;
   height: 100%;
   cursor: pointer;
+}
+
+.Checkbox_small__1lX7l > div > svg {
+  width: 20px;
+  height: 20px;
 }
 
 .Checkbox_disabled__VAQ1c {
@@ -324,6 +331,7 @@ button:disabled.Button_ghost__3LY19 {
   border: 4px solid var(--white);
   background: var(--white);
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background-clip: padding-box;
@@ -367,6 +375,10 @@ button:disabled.Button_ghost__3LY19 {
     z-index: -1;
     border-radius: 8px;
     background: var(--card-active-color);
+  }
+
+  .Card_card__1eE8R.Card_hasHover__1EL1H.Card_disabled__3Aotq {
+    border: 4px solid var(--card-disabled);
   }
 }
 
@@ -431,6 +443,7 @@ input {
   position: relative;
   display: flex;
   align-items: center;
+  flex-direction: row;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -451,6 +464,7 @@ input {
 
 .Input_label__z-LP7 {
   font-weight: 700;
+  font-size: var(--input-label-font-size);
 }
 
 .Input_loading__22eN1::before {
@@ -521,6 +535,7 @@ input {
   display: flex;
   align-items: center;
   height: 50px;
+  flex-direction: row;
   padding-left: 10px;
 }
 
@@ -534,7 +549,8 @@ input {
 }
 
 .Select_input__2uDKD,
-.Select_placeholder__2rP4W {
+.Select_placeholder__2rP4W,
+.Select_selected__1jrHp {
   cursor: text;
   background: var(--white);
   outline: none;
@@ -542,7 +558,7 @@ input {
   font-size: 14px;
   padding: 15px 0;
   border: 0px;
-  width: 100%;
+  flex-grow: 1;
   outline: 0;
   cursor: pointer;
   font-family: inherit;
@@ -557,6 +573,10 @@ input {
 
 .Select_placeholder__2rP4W {
   color: var(--input-placeholder);
+}
+
+.Select_selected__1jrHp {
+  color: var(--font-color-dark);
 }
 
 @-webkit-keyframes Select_spin__KvEBq {
@@ -574,6 +594,7 @@ input {
 .Select_wrapper__IExoa {
   position: relative;
   display: flex;
+  flex-direction: row;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
 }
@@ -595,6 +616,7 @@ input {
 
 .Select_label__3tAIC {
   font-weight: 700;
+  font-size: var(--input-label-font-size);
 }
 
 .Select_option__uxZal {
@@ -678,4 +700,4 @@ input {
 }
 
 
-/*# sourceMappingURL=main.0cfd8752.chunk.css.map*/
+/*# sourceMappingURL=main.f0d5d22c.chunk.css.map*/
