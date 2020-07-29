@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 interface Option {
     label: string | ReactNode;
     value: any;
+    name: string | ReactNode;
+    code: any;
 }
 declare type Modify<T, R> = Omit<T, keyof R> & R;
 interface Props extends Modify<React.SelectHTMLAttributes<HTMLSelectElement>, {

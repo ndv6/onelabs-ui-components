@@ -19,6 +19,8 @@ const classNames = createClassName(styles);
 interface Option {
   label: string | ReactNode;
   value: any;
+  name: string | ReactNode;
+  code: any;
 }
 
 type Modify<T, R> = Omit<T, keyof R> & R;
