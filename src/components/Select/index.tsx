@@ -17,10 +17,10 @@ const ArrowDown = () => (
 const classNames = createClassName(styles);
 
 interface Option {
-  label: string | ReactNode;
-  value: any;
-  name: string | ReactNode;
-  code: any;
+  label?: string | ReactNode;
+  value?: any;
+  name?: string | ReactNode;
+  code?: any;
 }
 
 type Modify<T, R> = Omit<T, keyof R> & R;
@@ -109,8 +109,8 @@ function Select(props: Props) {
             {...rest}
           >
             {(options || []).map((d, index: number) => (
-              <option key={index} value={d.value}>
-                {d.label}
+              <option key={index} value={d.value || d.code}>
+                {d.label || d.name}
               </option>
             ))}
           </select>

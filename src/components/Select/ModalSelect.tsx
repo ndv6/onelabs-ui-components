@@ -26,8 +26,10 @@ async function asyncCall(asyncOptions: () => any, setList: Function, setLoading:
 }
 
 interface Option {
-  label: string | ReactNode;
-  value: any;
+  label?: string | ReactNode;
+  value?: any;
+  name?: string | ReactNode;
+  code?: any;
 }
 
 export default function ModalSelect(props: {
@@ -90,14 +92,14 @@ export default function ModalSelect(props: {
       <div style={{ overflow: 'auto', height: 'calc(100vh - 130px)' }}>
         {list
           .filter((d: any) =>
-            d.label
+            (d.label || d.name)
               .toString()
               .toLowerCase()
               .includes(keyword.toLowerCase()),
           )
           .map((d: any, i: number) => (
             <Button key={i} onClick={() => props.onSelect(d)} className={styles.option} full>
-              {d.label}
+              {d.label || d.name}
             </Button>
           ))}
         {list.length < 1 && !loading && (
