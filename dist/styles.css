@@ -121,6 +121,12 @@ video {
   vertical-align: baseline;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body,
 #root {
@@ -129,4 +135,54 @@ body,
   line-height: 1.4;
   color: var(--font-color-dark);
   font-family: var(--font-family);
+}
+
+body,
+button,
+input,
+textarea {
+  font-size: 14px;
+  font-family: var(--font-family);
+}
+
+hr {
+  border-color: #c4c4c4;
+  margin: 0px 0px 15px 0px;
+  border-top: 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input:disabled {
+  background-color: transparent;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input::placeholder {
+  color: var(--input-placeholder);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-size-adjust: initial;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
