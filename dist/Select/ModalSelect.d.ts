@@ -1,7 +1,9 @@
 import { ReactNode } from 'react';
 interface Option {
-    label: string | ReactNode;
-    value: any;
+    label?: string | ReactNode;
+    value?: any;
+    name?: string | ReactNode;
+    code?: any;
 }
 export default function ModalSelect(props: {
     onSelect: Function;

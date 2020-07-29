@@ -108,12 +108,12 @@ export default function ModalSelect(props) {
         React.createElement("div", { style: { overflow: 'auto', height: 'calc(100vh - 130px)' } },
             list
                 .filter(function (d) {
-                return d.label
+                return (d.label || d.name)
                     .toString()
                     .toLowerCase()
                     .includes(keyword.toLowerCase());
             })
-                .map(function (d, i) { return (React.createElement(Button, { key: i, onClick: function () { return props.onSelect(d); }, className: styles.option, full: true }, d.label)); }),
+                .map(function (d, i) { return (React.createElement(Button, { key: i, onClick: function () { return props.onSelect(d); }, className: styles.option, full: true }, d.label || d.name)); }),
             list.length < 1 && !loading && (React.createElement("div", { style: { padding: 30, textAlign: 'center' } }, props.asyncOnSearch ? 'Type to search' : 'Data not found')),
             loading && React.createElement("div", { style: { padding: 30, textAlign: 'center' } }, "Loading..."))));
 }
