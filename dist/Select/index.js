@@ -37,13 +37,13 @@ function getLabel(d) {
 }
 function Select(props) {
     var _a;
-    var label = props.label, className = props.className, loading = props.loading, error = props.error, required = props.required, placeholder = props.placeholder, onChange = props.onChange, value = props.value, options = props.options, asyncOptions = props.asyncOptions, asyncOnSearch = props.asyncOnSearch, onFilter = props.onFilter, defaultValue = props.defaultValue, native = props.native, rest = __rest(props, ["label", "className", "loading", "error", "required", "placeholder", "onChange", "value", "options", "asyncOptions", "asyncOnSearch", "onFilter", "defaultValue", "native"]);
+    var label = props.label, className = props.className, loading = props.loading, error = props.error, required = props.required, placeholder = props.placeholder, onChange = props.onChange, value = props.value, options = props.options, asyncOptions = props.asyncOptions, asyncOnSearch = props.asyncOnSearch, onFilter = props.onFilter, defaultValue = props.defaultValue, disabled = props.disabled, native = props.native, rest = __rest(props, ["label", "className", "loading", "error", "required", "placeholder", "onChange", "value", "options", "asyncOptions", "asyncOnSearch", "onFilter", "defaultValue", "disabled", "native"]);
     var _b = React.useState(defaultValue || undefined), selected = _b[0], setSelected = _b[1];
     var _c = React.useState(false), showModal = _c[0], setShowModal = _c[1];
     var classnames = classNames((_a = {},
         _a["" + className] = !!className,
         _a.error = !!metaError(error),
-        _a.disabled = props.disabled,
+        _a.disabled = disabled,
         _a));
     React.useEffect(function () {
         if (value) {

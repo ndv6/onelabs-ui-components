@@ -38,6 +38,7 @@ interface Props
   error?: any;
   className?: string;
   native?: boolean;
+  disabled?: boolean;
   options?: Option[];
   asyncOptions?: () => Promise<Option[]>;
   asyncOnSearch?: (keyword: string) => Promise<Option[]>;
@@ -69,6 +70,7 @@ function Select(props: Props) {
     asyncOnSearch,
     onFilter,
     defaultValue,
+    disabled,
     native,
     ...rest
   } = props;
@@ -77,7 +79,7 @@ function Select(props: Props) {
   const classnames = classNames({
     [`${className}`]: !!className,
     error: !!metaError(error),
-    disabled: props.disabled,
+    disabled: disabled,
   });
 
   React.useEffect(() => {
