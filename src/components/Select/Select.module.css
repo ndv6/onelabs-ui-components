@@ -35,6 +35,11 @@
   }
 }
 
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .wrapper {
   position: relative;
   display: flex;

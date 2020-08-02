@@ -20,6 +20,8 @@ interface Option {
   label?: string | ReactNode;
   value?: any;
   name?: string | ReactNode;
+  title?: string | ReactNode;
+  id?: any;
   code?: any;
 }
 
@@ -42,6 +44,14 @@ interface Props
   onFilter?: (keyword: string, args: Option[]) => Option[];
   loading?: boolean;
   required?: boolean;
+}
+
+function getValue(d: any) {
+  return d.value || d.code || d.id;
+}
+
+function getLabel(d: any) {
+  return d.label || d.name || d.title;
 }
 
 function Select(props: Props) {
@@ -67,6 +77,7 @@ function Select(props: Props) {
   const classnames = classNames({
     [`${className}`]: !!className,
     error: !!metaError(error),
+    disabled: props.disabled,
   });
 
   React.useEffect(() => {
@@ -76,7 +87,7 @@ function Select(props: Props) {
   }, [value]);
 
   function nativeOnChange(event: any) {
-    const selectedValue: any = (options || []).find(d => d.value === event.target.value);
+    const selectedValue: any = (options || []).find(d => getValue(d) === event.target.value);
     if (onChange) {
       onChange(selectedValue);
       return;
@@ -100,17 +111,17 @@ function Select(props: Props) {
       )}
       <div className={styles.wrapper}>
         {!selected && placeholder && <div className={styles.placeholder}>{placeholder}</div>}
-        {selected && <div className={styles.selected}>{selected.label}</div>}
+        {selected && <div className={styles.selected}>{getLabel(selected)}</div>}
         {native && (
           <select
             onChange={nativeOnChange}
-            value={selected ? selected.value : undefined}
+            value={selected ? getValue(selected) : undefined}
             className={styles.nativeSelect}
             {...rest}
           >
             {(options || []).map((d, index: number) => (
-              <option key={index} value={d.value || d.code}>
-                {d.label || d.name}
+              <option key={index} value={getValue(d)}>
+                {getLabel(d)}
               </option>
             ))}
           </select>

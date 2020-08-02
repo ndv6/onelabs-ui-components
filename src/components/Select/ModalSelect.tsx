@@ -13,15 +13,24 @@ const SearchSvg = () => (
   </svg>
 );
 
-async function asyncCall(asyncOptions: () => any, setList: Function, setLoading: Function) {
+async function asyncCall(
+  asyncOptions: () => any,
+  setList: Function,
+  setLoading: Function,
+  subscribe = true,
+) {
   setLoading(true);
   try {
     const list = await asyncOptions();
-    setList(list);
-    setLoading(false);
+    if (subscribe) {
+      setList(list);
+      setLoading(false);
+    }
   } catch (error) {
-    setList([]);
-    setLoading(false);
+    if (subscribe) {
+      setList([]);
+      setLoading(false);
+    }
   }
 }
 
@@ -29,6 +38,8 @@ interface Option {
   label?: string | ReactNode;
   value?: any;
   name?: string | ReactNode;
+  title?: string | ReactNode;
+  id?: any;
   code?: any;
 }
 
@@ -71,9 +82,13 @@ export default function ModalSelect(props: {
   }
 
   React.useEffect(() => {
+    let subscribe = true;
     if (props.asyncOptions) {
-      asyncCall(props.asyncOptions, setList, setLoading);
+      asyncCall(props.asyncOptions, setList, setLoading, subscribe);
     }
+    return () => {
+      subscribe = false;
+    };
   }, [props.asyncOptions]);
   return (
     <div style={{ padding: '15px 20px 0px 20px' }}>
@@ -99,7 +114,7 @@ export default function ModalSelect(props: {
           )
           .map((d: any, i: number) => (
             <Button key={i} onClick={() => props.onSelect(d)} className={styles.option} full>
-              {d.label || d.name}
+              {d.label || d.name || d.title}
             </Button>
           ))}
         {list.length < 1 && !loading && (
