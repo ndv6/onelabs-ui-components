@@ -7,7 +7,7 @@ A React component library for Onelabs.
 ## Install
 
 ```
-yarn add git+https://github.com/ndv6/ocbc-ui-components.git#master
+yarn add git+https://github.com/ndv6/onelabs-ui-components.git#master
 ```
 
 ## Usage
