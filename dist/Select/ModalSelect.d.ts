@@ -3,6 +3,8 @@ interface Option {
     label?: string | ReactNode;
     value?: any;
     name?: string | ReactNode;
+    title?: string | ReactNode;
+    id?: any;
     code?: any;
 }
 export default function ModalSelect(props: {

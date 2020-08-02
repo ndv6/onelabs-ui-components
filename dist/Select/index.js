@@ -29,6 +29,12 @@ import styles from './Select.module.css';
 var ArrowDown = function () { return (React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24" },
     React.createElement("path", { fillRule: "evenodd", d: "M18.87 8.766l-.624-.624c-.148-.148-.387-.148-.536 0L12 13.84 6.29 8.142c-.149-.148-.388-.148-.536 0l-.625.624c-.148.148-.148.388 0 .536l6.603 6.603c.148.148.388.148.536 0l6.603-6.603c.148-.148.148-.388 0-.536z" }))); };
 var classNames = createClassName(styles);
+function getValue(d) {
+    return d.value || d.code || d.id;
+}
+function getLabel(d) {
+    return d.label || d.name || d.title;
+}
 function Select(props) {
     var _a;
     var label = props.label, className = props.className, loading = props.loading, error = props.error, required = props.required, placeholder = props.placeholder, onChange = props.onChange, value = props.value, options = props.options, asyncOptions = props.asyncOptions, asyncOnSearch = props.asyncOnSearch, onFilter = props.onFilter, defaultValue = props.defaultValue, native = props.native, rest = __rest(props, ["label", "className", "loading", "error", "required", "placeholder", "onChange", "value", "options", "asyncOptions", "asyncOnSearch", "onFilter", "defaultValue", "native"]);
@@ -37,6 +43,7 @@ function Select(props) {
     var classnames = classNames((_a = {},
         _a["" + className] = !!className,
         _a.error = !!metaError(error),
+        _a.disabled = props.disabled,
         _a));
     React.useEffect(function () {
         if (value) {
@@ -44,7 +51,7 @@ function Select(props) {
         }
     }, [value]);
     function nativeOnChange(event) {
-        var selectedValue = (options || []).find(function (d) { return d.value === event.target.value; });
+        var selectedValue = (options || []).find(function (d) { return getValue(d) === event.target.value; });
         if (onChange) {
             onChange(selectedValue);
             return;
@@ -63,8 +70,8 @@ function Select(props) {
             required && React.createElement("span", { className: styles.required }, "*"))),
         React.createElement("div", { className: styles.wrapper },
             !selected && placeholder && React.createElement("div", { className: styles.placeholder }, placeholder),
-            selected && React.createElement("div", { className: styles.selected }, selected.label),
-            native && (React.createElement("select", __assign({ onChange: nativeOnChange, value: selected ? selected.value : undefined, className: styles.nativeSelect }, rest), (options || []).map(function (d, index) { return (React.createElement("option", { key: index, value: d.value || d.code }, d.label || d.name)); }))),
+            selected && React.createElement("div", { className: styles.selected }, getLabel(selected)),
+            native && (React.createElement("select", __assign({ onChange: nativeOnChange, value: selected ? getValue(selected) : undefined, className: styles.nativeSelect }, rest), (options || []).map(function (d, index) { return (React.createElement("option", { key: index, value: getValue(d) }, getLabel(d))); }))),
             !native && React.createElement(Button, { className: styles.nativeSelect, onClick: function () { return setShowModal(true); } }),
             loading && React.createElement("div", { className: styles.loading }),
             React.createElement(ArrowDown, null)),
