@@ -83,9 +83,7 @@ function Select(props: Props) {
   });
 
   React.useEffect(() => {
-    if (value) {
-      setSelected(value);
-    }
+    setSelected(value);
   }, [value]);
 
   function nativeOnChange(event: any) {
