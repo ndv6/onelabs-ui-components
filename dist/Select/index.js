@@ -46,9 +46,7 @@ function Select(props) {
         _a.disabled = disabled,
         _a));
     React.useEffect(function () {
-        if (value) {
-            setSelected(value);
-        }
+        setSelected(value);
     }, [value]);
     function nativeOnChange(event) {
         var selectedValue = (options || []).find(function (d) { return getValue(d) === event.target.value; });
