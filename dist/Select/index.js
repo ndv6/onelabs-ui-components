@@ -56,11 +56,12 @@ function Select(props) {
         }
         setSelected(selectedValue);
     }
-    function onSelect(value) {
-        setSelected(value);
+    function onSelect(newVal) {
+        if (!props.value)
+            setSelected(newVal);
         setShowModal(false);
         if (onChange)
-            onChange(value);
+            onChange(newVal);
     }
     return (React.createElement("div", { className: classnames },
         label && (React.createElement("label", { className: styles.label },
