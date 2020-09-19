@@ -95,10 +95,10 @@ function Select(props: Props) {
     setSelected(selectedValue);
   }
 
-  function onSelect(value: any) {
-    setSelected(value);
+  function onSelect(newVal: any) {
+    if (!props.value) setSelected(newVal);
     setShowModal(false);
-    if (onChange) onChange(value);
+    if (onChange) onChange(newVal);
   }
 
   return (

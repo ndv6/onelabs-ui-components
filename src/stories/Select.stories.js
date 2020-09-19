@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from '../components/Select';
+import Tag from '../components/Tag';
 
 const MOCK_DATA = [
   {
@@ -64,6 +65,40 @@ export const OnFilter = () => (
     label="Pilih Data"
   />
 );
+
+export const WithTag = () => {
+  const [list, setList] = React.useState([]);
+  return (
+    <>
+      <Select
+        asyncOnSearch={keyword =>
+          fetch(
+            'https://raw.githubusercontent.com/substack/provinces/master/provinces.json?id=' +
+              keyword,
+          ).then(async res => {
+            const json = await res.json();
+            return json.map(d => ({ label: d.name, value: d.name }));
+          })
+        }
+        onChange={e => setList([...list, e])}
+        placeholder="Tap to select"
+        label="Pilih Data"
+        value={{ value: '', label: 'Tap to select' }}
+      />
+      <div style={{ marginTop: 15 }}>
+        {list.map(d => (
+          <Tag
+            key={d.value}
+            closeable
+            onClose={() => setList(list.filter(item => item.value !== d.value))}
+          >
+            {d.label}
+          </Tag>
+        ))}
+      </div>
+    </>
+  );
+};
 
 export default {
   title: 'Elements | Select',
