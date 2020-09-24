@@ -76,6 +76,7 @@ button:disabled.ghost {
 .loading {
   color: transparent;
   position: relative;
+  pointer-events: none;
 }
 
 .fullWidth {
