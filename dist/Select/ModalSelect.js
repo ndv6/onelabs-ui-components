@@ -110,10 +110,10 @@ export default function ModalSelect(props) {
             subscribe = false;
         };
     }, [props.asyncOptions]);
-    return (React.createElement("div", { style: { padding: '15px 20px 0px 20px' } },
-        React.createElement("label", { style: { fontWeight: 700 } }, props.label),
+    return (React.createElement("div", { style: { padding: '10px 16px 0px' } },
+        React.createElement("label", { style: { fontWeight: 700, fontSize: 16 } }, props.label),
         React.createElement(Input, { innerRef: inputRef, icon: React.createElement("span", { style: { marginLeft: 15 } },
-                React.createElement(SearchSvg, null)), id: "ui-search-input", placeholder: "Tap to search", onChange: onChange }),
+                React.createElement(SearchSvg, null)), className: styles.selectSearchInput, id: "ui-search-input", placeholder: "Tap to search", onChange: onChange }),
         React.createElement("div", { style: { overflow: 'auto', height: 'calc(100vh - 130px)' } },
             list
                 .filter(function (d) {

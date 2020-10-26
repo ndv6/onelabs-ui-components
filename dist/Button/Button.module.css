@@ -17,7 +17,7 @@ button {
 .secondary,
 .transparent,
 .ghost {
-  font-weight: 700;
+  font-weight: normal;
   background-image: none;
   border-radius: var(--button-radius);
   font-size: var(--button-font-size);
@@ -38,10 +38,19 @@ button {
   background-image: var(--primary-button-color);
   border-color: transparent;
 }
+
 .secondary {
-  color: var(--white);
-  background-image: var(--secondary-button-color);
+  border-radius: 24px;
+  border: solid 2px var(--secondary-button-border-color);
+  color: var(--secondary-button-color);
+  background: var(--white);
+}
+
+.secondary:hover {
+  color: var(--secondary-button-color);
+  background: var(--secondary-button-bg-color);
   border-color: transparent;
+  border: solid 2px var(--secondary-button-border-color);
 }
 .ghost {
   color: var(--font-color-dark);
@@ -57,7 +66,6 @@ button {
   color: var(--white);
 }
 
-button:disabled.primary,
 button:disabled.secondary,
 button:disabled.ghost {
   background-color: #ececec;
@@ -65,6 +73,24 @@ button:disabled.ghost {
   background-image: none;
   pointer-events: none;
   border: transparent;
+}
+
+button:disabled.primary { 
+  color: #ffffff;
+  background-color: var(--primary-button-bg-color-disabled);
+  border: transparent;
+  background-image: none;
+  pointer-events: none;
+  font-weight: normal;
+}
+
+button:disabled.secondary { 
+  color: var(--secondary-button-color-disabled);
+  background-color: var(--white);
+  border: solid 2px var(--secondary-button-border-color-disabled);
+  background-image: none;
+  pointer-events: none;
+  font-weight: normal;
 }
 
 @keyframes spin {

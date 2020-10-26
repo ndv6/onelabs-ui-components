@@ -4,8 +4,14 @@ import Button from '../Button';
 import Card from '../Card';
 import { createClassName } from '../helpers';
 import styles from './Modal.module.css';
-var ArrowSvg = function () { return (React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24" },
-    React.createElement("path", { fill: "#313131", fillRule: "evenodd", d: "M8.24 11.458l6.212-6.212c.3-.3.786-.3 1.085 0l.725.724c.3.3.3.784.001 1.084L11.34 12l4.923 4.946c.298.3.298.785-.001 1.084l-.725.725c-.3.299-.785.299-1.085 0L8.24 12.542c-.3-.3-.3-.785 0-1.084z" }))); };
+var ArrowSvg = function () { return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", viewBox: "0 0 24 24" },
+    React.createElement("g", { fill: "none", "fill-rule": "evenodd" },
+        React.createElement("g", null,
+            React.createElement("g", null,
+                React.createElement("g", { fill: "#939FAB", transform: "translate(-335 -110) translate(335 110)" },
+                    React.createElement("circle", { cx: "12", cy: "12", r: "12" })),
+                React.createElement("g", { fill: "#FFF" },
+                    React.createElement("path", { d: "M11.463 1.35c.252-.186.61-.166.838.063.252.251.252.659 0 .91L7.766 6.857l4.535 4.536c.252.251.252.659 0 .91-.228.228-.586.25-.838.062l-.072-.062-4.535-4.536-4.533 4.536-.072.062c-.252.187-.61.166-.838-.062-.251-.251-.251-.659 0-.91l4.533-4.536-4.533-4.534c-.251-.251-.251-.659 0-.91.228-.229.586-.25.838-.062l.072.062 4.533 4.534 4.535-4.534z", transform: "translate(-335 -110) translate(335 110) translate(5.143 5.143)" }))))))); };
 var classNames = createClassName(styles);
 var body = document.getElementsByTagName('body')[0];
 if (!document.getElementById('modal-portal')) {
@@ -41,9 +47,9 @@ function Modal(props) {
     }
     return ReactDOM.createPortal(React.createElement("div", { className: classnames },
         React.createElement("div", { className: styles.header },
-            React.createElement(Button, { onClick: props.onClose },
-                React.createElement(ArrowSvg, null)),
-            React.createElement("div", { className: styles.label }, props.title)),
+            React.createElement("div", { className: styles.label }, props.title),
+            React.createElement(Button, { style: { marginLeft: 'auto' }, onClick: props.onClose },
+                React.createElement(ArrowSvg, null))),
         React.createElement("div", { className: styles.content }, props.children)), el);
 }
 export default Modal;
