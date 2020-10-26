@@ -17,10 +17,13 @@
   --button-font-size: 14px;
   --button-font-size-small: 12px;
   --primary-button-color: linear-gradient(100deg, #f14545 13%, #c41432 87%);
-  --secondary-button-color: linear-gradient(100deg, #85ef47 13%, #00bd56 87%);
   --primary-button-color-hover: linear-gradient(100deg, #c41432 13%, #c41432 87%);
-  --secondary-button-color-hover: linear-gradient(100deg, #00bd56 13%, #00bd56 87%);
-
+  --primary-button-bg-color-disabled: #80909f;
+  --secondary-button-bg-color: rgba(0, 0, 0, 0.05);
+  --secondary-button-color: #eb2629;
+  --secondary-button-border-color: #eb2629;
+  --secondary-button-border-color-disabled: #667584;
+  --secondary-button-color-disabled: #667584;
   /* BORDER */
   --border-color: #c7c7c7;
 
