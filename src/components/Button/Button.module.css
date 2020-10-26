@@ -17,7 +17,7 @@ button {
 .secondary,
 .transparent,
 .ghost {
-  font-weight: 700;
+  font-weight: normal;
   background-image: none;
   border-radius: var(--button-radius);
   font-size: var(--button-font-size);
