@@ -91,8 +91,8 @@ export default function ModalSelect(props: {
     };
   }, [props.asyncOptions]);
   return (
-    <div style={{ padding: '15px 20px 0px 20px' }}>
-      <label style={{ fontWeight: 700 }}>{props.label}</label>
+    <div style={{ padding: '10px 16px 0px' }}>
+      <label style={{ fontWeight: 700, fontSize: 16 }}>{props.label}</label>
       <Input
         innerRef={inputRef}
         icon={
@@ -100,6 +100,7 @@ export default function ModalSelect(props: {
             <SearchSvg />
           </span>
         }
+        className={styles.selectSearchInput}
         id="ui-search-input"
         placeholder="Tap to search"
         onChange={onChange}

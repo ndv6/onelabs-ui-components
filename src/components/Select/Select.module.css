@@ -14,6 +14,10 @@
   font-family: inherit;
 }
 
+.selectSearchInput input{
+  background: var(--solid-grey);
+}
+
 .nativeSelect {
   width: 100%;
   position: absolute;
