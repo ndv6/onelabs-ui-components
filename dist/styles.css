@@ -15,7 +15,7 @@
   --button-height: 48px;
   --button-small: 35px;
   --button-radius: 24px;
-  --button-font-size: 14px;
+  --button-font-size: 16px;
   --button-font-size-small: 12px;
   --primary-button-color: linear-gradient(100deg, #f14545 13%, #c41432 87%);
   --primary-button-color-hover: linear-gradient(100deg, #c41432 13%, #c41432 87%);
@@ -145,7 +145,7 @@ body,
 button,
 input,
 textarea {
-  font-size: 14px;
+  font-size: 16px;
   font-family: var(--font-family);
 }
 
