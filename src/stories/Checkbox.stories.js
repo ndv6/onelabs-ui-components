@@ -13,6 +13,12 @@ export const Small = () => (
   </Checkbox>
 );
 
+export const Radio = () => (
+  <Checkbox radio >
+    i agreed terms and condition
+  </Checkbox>
+);
+
 export default {
   title: 'Elements | Checkbox',
   component: Checkbox,

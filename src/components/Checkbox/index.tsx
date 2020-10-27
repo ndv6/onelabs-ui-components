@@ -2,58 +2,123 @@ import React, { ReactNode } from 'react';
 import styles from './Checkbox.module.css';
 
 const CheckedIcon = () => (
-  <svg width={24} height={24} viewBox="0 0 24 24">
-    <defs>
-      <linearGradient id="a" x1="13.368%" x2="87.636%" y1="16.036%" y2="81.312%">
-        <stop offset="0%" stopColor="#6BAA12" />
-        <stop offset="100%" stopColor="#009E9B" />
-      </linearGradient>
-    </defs>
-    <g fill="none" fillRule="evenodd">
-      <path
-        fill="url(#a)"
-        d="M11 0C4.923 0 0 4.923 0 11s4.923 11 11 11 11-4.923 11-11S17.077 0 11 0z"
-        transform="translate(1 1)"
-      />
-      <path
-        fill="#FFF"
-        d="M16.364 7.61l-6.284 6.22-2.044-2.02a.38.38 0 0 0-.535 0l-.89.883a.373.373 0 0 0 0 .53l3.202 3.17a.38.38 0 0 0 .534 0l7.442-7.369a.373.373 0 0 0 0-.53l-.89-.884a.38.38 0 0 0-.535 0z"
-      />
-    </g>
-  </svg>
+  <span className={styles.checked}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <defs>
+          <linearGradient id="5dv7zurypa" x1="13.368%" x2="87.636%" y1="16.036%" y2="81.312%">
+              <stop offset="0%" stop-color="#F14545"/>
+              <stop offset="100%" stop-color="#C41432"/>
+          </linearGradient>
+      </defs>
+      <g fill="none" fill-rule="evenodd">
+          <g fill="url(#5dv7zurypa)" transform="translate(-16 -638)">
+              <g>
+                  <g transform="translate(0 622) translate(16 16)">
+                      <rect width="24" height="24" rx="4"/>
+                  </g>
+              </g>
+          </g>
+      </g>
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+      <g fill="none" fill-rule="evenodd">
+          <g fill="#FFF">
+              <g>
+                  <g>
+                      <g>
+                          <path d="M15.75 3.494c.36-.366.954-.374 1.324-.017.337.325.374.839.106 1.205l-.09.105-9.592 9.72c-.339.343-.88.37-1.251.08l-.096-.087L1.224 9.41c-.358-.37-.344-.956.03-1.31.34-.32.86-.339 1.221-.062l.103.092 4.256 4.396 8.915-9.033z" transform="translate(-19 -641) translate(0 622) translate(16 16) translate(3 3)"/>
+                      </g>
+                  </g>
+              </g>
+          </g>
+      </g>
+    </svg>
+  </span>
 );
 
-const DisabledCheckedIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
-    <g fill="none" fillRule="evenodd">
-      <path
-        fill="#C7C7C7"
-        d="M11 0C4.923 0 0 4.923 0 11s4.923 11 11 11 11-4.923 11-11S17.077 0 11 0z"
-        transform="translate(1 1)"
-      />
-      <path
-        fill="#FFF"
-        d="M15.364 6.61L9.08 12.83l-2.044-2.02c-.148-.147-.387-.147-.535 0l-.89.883c-.148.147-.148.384 0 .53l3.202 3.17c.147.147.386.147.534 0l7.442-7.369c.148-.146.148-.384 0-.53l-.89-.884c-.148-.147-.387-.147-.535 0z"
-        transform="translate(1 1)"
-      />
-    </g>
-  </svg>
-);
 
 const UnCheckedIcon = () => (
-  <svg width={24} height={24} viewBox="0 0 24 24">
-    <g fill="none" fillRule="evenodd">
-      <path
-        fill="#C7C7C7"
-        d="M12 1c6.077 0 11 4.923 11 11s-4.923 11-11 11S1 18.077 1 12 5.923 1 12 1zm0 1C6.476 2 2 6.476 2 12s4.476 10 10 10 10-4.476 10-10S17.524 2 12 2z"
-      />
-      <path
-        fill="#ECECEC"
-        d="M12 2C6.476 2 2 6.476 2 12s4.476 10 10 10 10-4.476 10-10S17.524 2 12 2z"
-      />
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <filter id="9ibllx6crb" width="116.7%" height="116.7%" x="-8.3%" y="-8.3%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1.5"/>
+            <feOffset dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        </filter>
+        <rect id="5qcuvvij1a" width="24" height="24" x="0" y="0" rx="4"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g transform="translate(-16 -638) translate(0 622) translate(16 16)">
+                    <use fill="#FFF" href="#5qcuvvij1a"/>
+                    <use fill="#000" filter="url(#9ibllx6crb)" href="#5qcuvvij1a"/>
+                </g>
+            </g>
+        </g>
     </g>
   </svg>
 );
+
+const RadioBorder = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24">
+      <defs>
+          <filter id="uv6znpzakb" width="116.7%" height="116.7%" x="-8.3%" y="-8.3%" filterUnits="objectBoundingBox">
+              <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1.5"/>
+              <feOffset dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+              <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+              <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+          </filter>
+          <circle id="e8oleaybua" cx="12" cy="12" r="12"/>
+      </defs>
+      <g fill="none" fill-rule="evenodd">
+          <g>
+              <g transform="translate(-32 -462) translate(32 462)">
+                  <use fill="#FFF" href="#e8oleaybua"/>
+                  <use fill="#000" filter="url(#uv6znpzakb)" href="#e8oleaybua"/>
+              </g>
+          </g>
+      </g>
+  </svg>
+)
+
+const RadioFiller = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+    <defs>
+        <linearGradient id="g39ug4eaea" x1="13.368%" x2="87.636%" y1="16.036%" y2="81.312%">
+            <stop offset="0%" stop-color="#F14545"/>
+            <stop offset="100%" stop-color="#C41432"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill="url(#g39ug4eaea)" transform="translate(-38 -468)">
+            <g transform="translate(32 462)">
+                <circle cx="12" cy="12" r="6"/>
+            </g>
+        </g>
+    </g>
+  </svg>
+)
+
+const RadioDisabled = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+    <defs>
+        <linearGradient id="9r13h1ct8a" x1="0%" x2="100%" y1="50%" y2="50%">
+            <stop offset="0%" stop-color="#E7E7E7"/>
+            <stop offset="100%" stop-color="#BDBDBD"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill="url(#9r13h1ct8a)" transform="translate(-38 -284)">
+            <g transform="translate(32 278)">
+                <circle cx="12" cy="12" r="6"/>
+            </g>
+        </g>
+    </g>
+  </svg>  
+)
 
 interface Props {
   children: ReactNode;
@@ -61,6 +126,7 @@ interface Props {
   disabled?: boolean;
   onChange?: (args: boolean) => void;
   size?: 'default' | 'small';
+  radio?: boolean;
 }
 
 function Checkbox(props: Props) {
@@ -80,9 +146,27 @@ function Checkbox(props: Props) {
   let iconChecked = <CheckedIcon />;
   let iconUnChecked = <UnCheckedIcon />;
 
-  if (disabled) {
-    iconChecked = <DisabledCheckedIcon />;
+  if (props.radio) {
+    iconChecked = (<span className={styles.radioChecked}>
+      <RadioBorder />
+      <RadioFiller />
+    </span>)
+    iconUnChecked = <RadioBorder />;
   }
+
+  if (disabled) {
+    iconChecked = (<span className={styles.disabledChecked}>
+      <CheckedIcon />
+    </span>)
+  }
+
+  if (disabled && props.radio) {
+    iconChecked = (<span className={styles.radioChecked}>
+      <RadioBorder />
+      <RadioDisabled />
+    </span>)
+  }
+
 
   return (
     <div
