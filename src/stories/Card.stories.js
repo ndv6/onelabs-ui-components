@@ -103,6 +103,33 @@ export const ListCheckboxWithChecked = () => {
   );
 };
 
+export const ListCheckboxWithCheckedRadio = () => {
+  const [selected, setSelected] = React.useState('1');
+  const defConfig = {
+    type: 'checkbox',
+  };
+  return (
+    <Card.List
+      list={[
+        {
+          children: 'Clickable Card with arrow 1',
+          checked: selected === '1',
+          onClick: () => setSelected('1'),
+          ...defConfig,
+          radio: true
+        },
+        {
+          children: 'Clickable Card with arrow 2',
+          checked: selected === '2',
+          onClick: () => setSelected('2'),
+          ...defConfig,
+          radio: true
+        },
+      ]}
+    />
+  );
+};
+
 export default {
   title: 'Elements | Card',
   component: Card,
