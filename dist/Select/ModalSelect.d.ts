@@ -14,5 +14,6 @@ export default function ModalSelect(props: {
     onFilter?: (keyword: string, args: Option[]) => Option[];
     options: any;
     label: string | ReactNode;
+    placeholderSearch?: string;
 }): JSX.Element;
 export {};
