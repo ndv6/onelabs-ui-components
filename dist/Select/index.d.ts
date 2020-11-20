@@ -23,6 +23,7 @@ interface Props extends Modify<React.SelectHTMLAttributes<HTMLSelectElement>, {
     onFilter?: (keyword: string, args: Option[]) => Option[];
     loading?: boolean;
     required?: boolean;
+    placeholderSearch?: string;
 }
 declare function Select(props: Props): JSX.Element;
 export default Select;

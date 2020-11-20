@@ -45,6 +45,7 @@ interface Props
   onFilter?: (keyword: string, args: Option[]) => Option[];
   loading?: boolean;
   required?: boolean;
+  placeholderSearch?: string;
 }
 
 function getValue(d: any) {
@@ -72,6 +73,7 @@ function Select(props: Props) {
     defaultValue,
     disabled,
     native,
+    placeholderSearch,
     ...rest
   } = props;
   const [selected, setSelected] = React.useState(defaultValue || undefined);
@@ -139,6 +141,7 @@ function Select(props: Props) {
             options={options || []}
             asyncOptions={asyncOptions}
             asyncOnSearch={asyncOnSearch}
+            placeholderSearch={placeholderSearch}
             onFilter={onFilter}
           />
         </Modal>
