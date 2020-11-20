@@ -50,6 +50,7 @@ export default function ModalSelect(props: {
   onFilter?: (keyword: string, args: Option[]) => Option[];
   options: any;
   label: string | ReactNode;
+  placeholderSearch?: string
 }) {
   const inputRef: any = React.useRef(null);
   const [list, setList] = React.useState(props.options || []);
@@ -102,7 +103,7 @@ export default function ModalSelect(props: {
         }
         className={styles.selectSearchInput}
         id="ui-search-input"
-        placeholder="Tap to search"
+        placeholder={props.placeholderSearch ? props.placeholderSearch : 'Tap to search'}
         onChange={onChange}
       />
       <div style={{ overflow: 'auto', height: 'calc(100vh - 130px)' }}>

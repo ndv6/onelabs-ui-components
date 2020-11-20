@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from '../components/Select';
+import ModalSelect from '../components/Select/ModalSelect';
 import Tag from '../components/Tag';
 
 const MOCK_DATA = [
@@ -96,6 +97,28 @@ export const WithTag = () => {
           </Tag>
         ))}
       </div>
+    </>
+  );
+};
+
+export const ModalSelection = () => {
+  const [list, setList] = React.useState([]);
+  return (
+    <>
+    <ModalSelect
+       label={'title'}
+          options={[]}
+          asyncOnSearch={keyword =>
+            fetch(
+              'https://raw.githubusercontent.com/substack/provinces/master/provinces.json?id=' +
+                keyword,
+            ).then(async res => {
+              const json = await res.json();
+              return json.map(d => ({ label: d.name, value: d.name }));
+            })
+          }
+          onSelect={() => {}}
+          />
     </>
   );
 };
