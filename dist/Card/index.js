@@ -27,6 +27,9 @@ function Card(props) {
     if (props.type && props.type === 'checkbox') {
         children = (React.createElement(Checkbox, { radio: props.radio, checked: props.checked, disabled: props.disabled, onChange: props.onClick }, props.children));
     }
+    if (props.type && props.type === 'check') {
+        children = (React.createElement(Checkbox, { type: "check", checked: props.checked, disabled: props.disabled, onChange: props.onClick }, props.children));
+    }
     var content = (React.createElement(React.Fragment, null,
         children,
         props.withArrow && React.createElement(ArrowRightSvg, null)));

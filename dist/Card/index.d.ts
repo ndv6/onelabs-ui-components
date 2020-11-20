@@ -8,7 +8,7 @@ interface Props {
     withArrow?: boolean;
     checked?: boolean;
     onChange?: (arg: boolean) => void;
-    type?: 'checkbox' | 'default';
+    type?: 'checkbox' | 'default' | 'check';
     radio?: boolean;
 }
 declare function Card(props: Props): JSX.Element;

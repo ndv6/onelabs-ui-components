@@ -18,6 +18,11 @@ var CheckedIcon = function () { return (React.createElement("span", { className:
                     React.createElement("g", null,
                         React.createElement("g", null,
                             React.createElement("path", { d: "M15.75 3.494c.36-.366.954-.374 1.324-.017.337.325.374.839.106 1.205l-.09.105-9.592 9.72c-.339.343-.88.37-1.251.08l-.096-.087L1.224 9.41c-.358-.37-.344-.956.03-1.31.34-.32.86-.339 1.221-.062l.103.092 4.256 4.396 8.915-9.033z", transform: "translate(-19 -641) translate(0 622) translate(16 16) translate(3 3)" }))))))))); };
+var CheckedDisabled = function () { return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", viewBox: "0 0 24 24" },
+    React.createElement("g", { fill: "none", "fill-rule": "evenodd" },
+        React.createElement("g", { fill: "#EB2629" },
+            React.createElement("g", null,
+                React.createElement("path", { d: "M21 4.658c.481-.488 1.272-.498 1.766-.022.449.433.498 1.119.141 1.606l-.12.14-12.79 12.96c-.452.458-1.174.493-1.668.107l-.128-.116-6.569-6.785c-.477-.493-.46-1.274.04-1.745.453-.429 1.147-.454 1.628-.084l.138.122 5.674 5.861L21 4.658z", transform: "translate(-32 -278) translate(32 278)" })))))); };
 var UnCheckedIcon = function () { return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", viewBox: "0 0 24 24" },
     React.createElement("defs", null,
         React.createElement("filter", { id: "9ibllx6crb", width: "116.7%", height: "116.7%", x: "-8.3%", y: "-8.3%", filterUnits: "objectBoundingBox" },
@@ -92,6 +97,10 @@ function Checkbox(props) {
         iconChecked = (React.createElement("span", { className: styles.radioChecked },
             React.createElement(RadioBorder, null),
             React.createElement(RadioDisabled, null)));
+    }
+    if (props.type === 'check' && disabled) {
+        iconChecked = (React.createElement("span", null,
+            React.createElement(CheckedDisabled, null)));
     }
     return (React.createElement("div", { className: [
             styles.checkbox,

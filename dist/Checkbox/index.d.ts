@@ -6,6 +6,7 @@ interface Props {
     onChange?: (args: boolean) => void;
     size?: 'default' | 'small';
     radio?: boolean;
+    type?: 'check';
 }
 declare function Checkbox(props: Props): JSX.Element;
 export default Checkbox;
