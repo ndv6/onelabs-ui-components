@@ -21,7 +21,7 @@ interface Props {
   withArrow?: boolean;
   checked?: boolean;
   onChange?: (arg: boolean) => void;
-  type?: 'checkbox' | 'default';
+  type?: 'checkbox' | 'default' | 'check';
   radio?: boolean;
 }
 
@@ -35,6 +35,14 @@ function Card(props: Props) {
   if (props.type && props.type === 'checkbox') {
     children = (
       <Checkbox radio={props.radio} checked={props.checked} disabled={props.disabled} onChange={props.onClick}>
+        {props.children}
+      </Checkbox>
+    );
+  }
+
+  if (props.type && props.type === 'check') {
+    children = (
+      <Checkbox type="check" checked={props.checked} disabled={props.disabled} onChange={props.onClick}>
         {props.children}
       </Checkbox>
     );

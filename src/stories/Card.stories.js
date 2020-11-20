@@ -17,6 +17,9 @@ export const Default = () => (
   </Card>
 );
 export const Selected = () => <Card selected>i agreed terms and condition</Card>;
+
+export const SelectedTypeCheck = () => <Card type="check" checked disabled>i agreed terms and condition</Card>;
+
 export const Disabled = () => <Card disabled>i agreed terms and condition</Card>;
 export const DisabledCheckbox = () => {
   return (

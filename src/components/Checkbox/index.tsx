@@ -37,6 +37,19 @@ const CheckedIcon = () => (
   </span>
 );
 
+const CheckedDisabled = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g fill="none" fill-rule="evenodd">
+        <g fill="#EB2629">
+            <g>
+                <path d="M21 4.658c.481-.488 1.272-.498 1.766-.022.449.433.498 1.119.141 1.606l-.12.14-12.79 12.96c-.452.458-1.174.493-1.668.107l-.128-.116-6.569-6.785c-.477-.493-.46-1.274.04-1.745.453-.429 1.147-.454 1.628-.084l.138.122 5.674 5.861L21 4.658z" transform="translate(-32 -278) translate(32 278)"/>
+            </g>
+        </g>
+    </g>
+  </svg>
+)
+
+
 
 const UnCheckedIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -127,6 +140,7 @@ interface Props {
   onChange?: (args: boolean) => void;
   size?: 'default' | 'small';
   radio?: boolean;
+  type?: 'check';
 }
 
 function Checkbox(props: Props) {
@@ -167,6 +181,12 @@ function Checkbox(props: Props) {
     </span>)
   }
 
+
+  if (props.type === 'check' && disabled) {
+    iconChecked = (<span>
+      <CheckedDisabled />
+    </span>)
+  }
 
   return (
     <div
