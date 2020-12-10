@@ -8,6 +8,7 @@ export default function Tooltip(props) {
             background: '#e1f3f7',
             border: '1px solid',
             borderColor: '#5ddafc',
+            boxShadow: 'none'
         } },
         React.createElement("div", null,
             React.createElement(Flex, { justifyContent: "space-between", alignItems: "flex-start" },

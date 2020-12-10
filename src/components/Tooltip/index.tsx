@@ -17,6 +17,7 @@ export default function Tooltip(props: Props) {
           background: '#e1f3f7',
           border: '1px solid',
           borderColor: '#5ddafc',
+          boxShadow: 'none'
         }
       }
     >
