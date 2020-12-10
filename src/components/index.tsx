@@ -8,5 +8,6 @@ import Select from './Select';
 import Text from './Text';
 import Skeleton from './Skeleton';
 import Tag from './Tag';
+import Tooltip from './Tooltip';
 
-export { Button, Card, Checkbox, Flex, Input, Modal, Select, Text, Skeleton, Tag };
+export { Button, Card, Checkbox, Flex, Input, Modal, Select, Text, Skeleton, Tag, Tooltip };
