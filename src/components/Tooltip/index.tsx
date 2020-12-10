@@ -13,7 +13,7 @@ export default function Tooltip(props: Props) {
     <Card
       style={
         props.style || {
-          padding: 20,
+          padding: '8px 10px',
           background: '#e1f3f7',
           border: '1px solid',
           borderColor: '#5ddafc',
@@ -23,7 +23,7 @@ export default function Tooltip(props: Props) {
     >
       <div>
         <Flex justifyContent="space-between" alignItems="flex-start">
-          <span style={{ marginRight: 20 }}>
+          <span style={{ marginRight: 10 }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <g fill="none" fill-rule="evenodd">
                 <g>

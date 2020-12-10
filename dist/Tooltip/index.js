@@ -4,7 +4,7 @@ import Flex from '../Flex';
 import Text from '../Text';
 export default function Tooltip(props) {
     return (React.createElement(Card, { style: props.style || {
-            padding: 20,
+            padding: '8px 10px',
             background: '#e1f3f7',
             border: '1px solid',
             borderColor: '#5ddafc',
@@ -12,7 +12,7 @@ export default function Tooltip(props) {
         } },
         React.createElement("div", null,
             React.createElement(Flex, { justifyContent: "space-between", alignItems: "flex-start" },
-                React.createElement("span", { style: { marginRight: 20 } },
+                React.createElement("span", { style: { marginRight: 10 } },
                     React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", viewBox: "0 0 24 24" },
                         React.createElement("g", { fill: "none", "fill-rule": "evenodd" },
                             React.createElement("g", null,
