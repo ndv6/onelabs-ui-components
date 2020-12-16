@@ -13,7 +13,7 @@ export const Transparent = () => (
     <Button variant="transparent">Transparent</Button>
   </div>
 );
-export const Secondary = () => <Button variant="secondary">Secondary</Button>;
+export const Secondary = () => <div style={{background: 'rgba(0, 0, 0, 0.05)'}}><Button variant="secondary">Secondary</Button></div>;
 export const Ghost = () => <Button variant="ghost">Ghost</Button>;
 export const Disabled = () => (
   <div className="example-row">
