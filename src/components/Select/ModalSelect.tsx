@@ -105,7 +105,7 @@ export default function ModalSelect(props: {
         id="ui-search-input"
         placeholder={props.placeholderSearch ? props.placeholderSearch : 'Tap to search'}
         onChange={onChange}
-        style={{ overflow: 'auto' }}
+        style={{ margin: 'auto' }}
       />
       <div style={{ overflow: 'auto', height: 'calc(100vh - 130px)' }}>
         {list
