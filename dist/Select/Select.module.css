@@ -14,8 +14,8 @@
   font-family: inherit;
 }
 
-.selectSearchInput input{
-  background: var(--solid-grey);
+.selectSearchInput input {
+  background: transparent;
 }
 
 .nativeSelect {
@@ -79,7 +79,8 @@
   font-size: 16px;
 }
 
-.label, .option {
+.label,
+.option {
   color: var(--font-color-dark);
 }
 
