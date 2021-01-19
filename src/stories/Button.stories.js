@@ -8,6 +8,7 @@ export const Rounded = () => (
   </Button>
 );
 export const Primary = () => <Button variant="primary">Primary</Button>;
+export const PrimaryWithLongString = () => <div style={{width: 320, padding: '50px'}}><Button variant="primary">Saya Sudah Membaca & Menyetujui</Button></div>;
 export const Transparent = () => (
   <div style={{ background: '#000', padding: 20 }}>
     <Button variant="transparent">Transparent</Button>

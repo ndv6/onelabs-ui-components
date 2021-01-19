@@ -28,8 +28,9 @@ button {
   border-width: 1px;
   text-align: center;
   font-family: inherit;
-  height: var(--button-height);
-  line-height: var(--button-height);
+  padding: var(--button-padding);
+  line-height: var(--button-line-height);
+  height: auto;
   transition: all 0.2s ease-in-out;
 }
 
@@ -130,6 +131,8 @@ button:disabled.secondary {
   line-height: var(--button-small);
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   font-weight: 400;
   font-size: var(--button-font-size-small);
 }
