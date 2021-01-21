@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import Input from '../Input';
 import Button from '../Button';
+import Text from '../Text';
 import styles from './Select.module.css';
 import { debounce } from '../helpers';
 
@@ -53,7 +54,7 @@ export default function ModalSelect(props: {
   options: any;
   label: string | ReactNode;
   placeholderSearch?: string;
-  errorComponent: ReactNode[];
+  errorComponent: ReactNode;
 }) {
   const inputRef: any = React.useRef(null);
   const [list, setList] = React.useState(props.options || []);
@@ -98,6 +99,8 @@ export default function ModalSelect(props: {
       subscribe = false;
     };
   }, [props.asyncOptions]);
+
+  console.log('react node', props.errorComponent)
   return (
     <div style={{ padding: '10px 16px 0px' }}>
       <label style={{ fontWeight: 700, fontSize: 16 }}>{props.label}</label>
@@ -129,12 +132,15 @@ export default function ModalSelect(props: {
           ))}
         {list.length < 1 && !loading && (
           <div style={{ padding: 30, textAlign: 'center' }}>
-            {props.asyncOnSearch ? 'Type to search' : [
-              error && (props.errorComponent && props.errorComponent.length)
+            {props.asyncOnSearch ? 'Type to search' : 
+            <>
+              {error && props.errorComponent
               ? props.errorComponent 
-              : [<div style={{marginTop: 84}}>{defaultErrMessage}</div>,
-              <Button variant="primary" full={true} disabled={loading} style={{marginTop: 32}} onClick={() => {window.location.reload()}}>Refresh</Button>],
-            ]}
+              : <>
+                  <Text size={16} style={{marginTop: 84}}>{defaultErrMessage}</ Text>
+                  <Button variant="primary" full={true} disabled={loading} style={{marginTop: 32}} onClick={() => {window.location.reload()}}>Refresh</Button>
+                </>}
+            </>}
           </div>
         )}
         {loading && <div style={{ padding: 30, textAlign: 'center' }}>Loading...</div>}
