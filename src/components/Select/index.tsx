@@ -46,6 +46,7 @@ interface Props
   loading?: boolean;
   required?: boolean;
   placeholderSearch?: string;
+  errorComponent?: ReactNode;
 }
 
 function getValue(d: any) {
@@ -74,6 +75,7 @@ function Select(props: Props) {
     disabled,
     native,
     placeholderSearch,
+    errorComponent,
     ...rest
   } = props;
   const [selected, setSelected] = React.useState(defaultValue || undefined);
@@ -143,6 +145,7 @@ function Select(props: Props) {
             asyncOnSearch={asyncOnSearch}
             placeholderSearch={placeholderSearch}
             onFilter={onFilter}
+            errorComponent={errorComponent}
           />
         </Modal>
       )}
