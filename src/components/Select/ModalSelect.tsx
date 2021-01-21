@@ -100,7 +100,6 @@ export default function ModalSelect(props: {
     };
   }, [props.asyncOptions]);
 
-  console.log('react node', props.errorComponent)
   return (
     <div style={{ padding: '10px 16px 0px' }}>
       <label style={{ fontWeight: 700, fontSize: 16 }}>{props.label}</label>
