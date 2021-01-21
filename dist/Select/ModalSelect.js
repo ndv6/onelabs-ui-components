@@ -37,11 +37,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import React from 'react';
 import Input from '../Input';
 import Button from '../Button';
+import Text from '../Text';
 import styles from './Select.module.css';
 import { debounce } from '../helpers';
 var SearchSvg = function () { return (React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24" },
     React.createElement("path", { fillRule: "evenodd", d: "M19.86 18.625l-3.787-3.787c-.071-.072-.165-.109-.265-.109h-.412c.983-1.138 1.579-2.62 1.579-4.242C16.975 6.904 14.07 4 10.487 4 6.904 4 4 6.904 4 10.487c0 3.584 2.904 6.488 6.487 6.488 1.622 0 3.104-.596 4.242-1.579v.412c0 .1.04.194.11.265l3.786 3.787c.146.146.383.146.53 0l.705-.705c.146-.147.146-.384 0-.53zm-9.373-3.147c-2.757 0-4.99-2.234-4.99-4.99 0-2.758 2.233-4.99 4.99-4.99s4.99 2.232 4.99 4.99c0 2.756-2.233 4.99-4.99 4.99z" }))); };
-function asyncCall(asyncOptions, setList, setLoading, subscribe) {
+function asyncCall(asyncOptions, setList, setLoading, subscribe, setError) {
     if (subscribe === void 0) { subscribe = true; }
     return __awaiter(this, void 0, void 0, function () {
         var list, error_1;
@@ -65,6 +66,7 @@ function asyncCall(asyncOptions, setList, setLoading, subscribe) {
                     if (subscribe) {
                         setList([]);
                         setLoading(false);
+                        setError(true);
                     }
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
@@ -77,13 +79,15 @@ export default function ModalSelect(props) {
     var _a = React.useState(props.options || []), list = _a[0], setList = _a[1];
     var _b = React.useState(''), keyword = _b[0], setKeyword = _b[1];
     var _c = React.useState(false), loading = _c[0], setLoading = _c[1];
+    var _d = React.useState(false), error = _d[0], setError = _d[1];
+    var defaultErrMessage = 'Maaf, terjadi kendala dalam menampilkan data. Silahkan klik refresh untuk memuat kembali tampilan/data.';
     var asyncOnSearchDebounce = debounce(function () {
         asyncCall(function () {
             if (props.asyncOnSearch) {
                 return props.asyncOnSearch(inputRef.current.value || '');
             }
             return [];
-        }, setList, setLoading);
+        }, setList, setLoading, true, setError);
     }, 500);
     function onChange(e) {
         return __awaiter(this, void 0, void 0, function () {
@@ -104,7 +108,7 @@ export default function ModalSelect(props) {
     React.useEffect(function () {
         var subscribe = true;
         if (props.asyncOptions) {
-            asyncCall(props.asyncOptions, setList, setLoading, subscribe);
+            asyncCall(props.asyncOptions, setList, setLoading, subscribe, setError);
         }
         return function () {
             subscribe = false;
@@ -123,7 +127,12 @@ export default function ModalSelect(props) {
                     .includes(keyword.toLowerCase());
             })
                 .map(function (d, i) { return (React.createElement(Button, { key: i, onClick: function () { return props.onSelect(d); }, className: styles.option, full: true }, d.label || d.name || d.title)); }),
-            list.length < 1 && !loading && (React.createElement("div", { style: { padding: 30, textAlign: 'center' } }, props.asyncOnSearch ? 'Type to search' : 'Data not found')),
+            list.length < 1 && !loading && (React.createElement("div", { style: { padding: 30, textAlign: 'center' } }, props.asyncOnSearch ? 'Type to search' :
+                React.createElement(React.Fragment, null, error && props.errorComponent
+                    ? props.errorComponent
+                    : React.createElement(React.Fragment, null,
+                        React.createElement(Text, { size: 16, style: { marginTop: 84 } }, defaultErrMessage),
+                        React.createElement(Button, { variant: "primary", full: true, disabled: loading, style: { marginTop: 32 }, onClick: function () { window.location.reload(); } }, "Refresh"))))),
             loading && React.createElement("div", { style: { padding: 30, textAlign: 'center' } }, "Loading..."))));
 }
 //# sourceMappingURL=ModalSelect.js.map
