@@ -18,6 +18,7 @@ async function asyncCall(
   setList: Function,
   setLoading: Function,
   subscribe = true,
+  setError: Function,
 ) {
   setLoading(true);
   try {
@@ -30,6 +31,7 @@ async function asyncCall(
     if (subscribe) {
       setList([]);
       setLoading(false);
+      setError(true);
     }
   }
 }
@@ -51,11 +53,14 @@ export default function ModalSelect(props: {
   options: any;
   label: string | ReactNode;
   placeholderSearch?: string;
+  errorComponent: ReactNode[];
 }) {
   const inputRef: any = React.useRef(null);
   const [list, setList] = React.useState(props.options || []);
   const [keyword, setKeyword] = React.useState('');
   const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const defaultErrMessage = 'Maaf, terjadi kendala dalam menampilkan data. Silahkan klik refresh untuk memuat kembali tampilan/data.'
 
   const asyncOnSearchDebounce = debounce(function() {
     asyncCall(
@@ -67,6 +72,8 @@ export default function ModalSelect(props: {
       },
       setList,
       setLoading,
+      true,
+      setError,
     );
   }, 500);
 
@@ -85,7 +92,7 @@ export default function ModalSelect(props: {
   React.useEffect(() => {
     let subscribe = true;
     if (props.asyncOptions) {
-      asyncCall(props.asyncOptions, setList, setLoading, subscribe);
+      asyncCall(props.asyncOptions, setList, setLoading, subscribe, setError);
     }
     return () => {
       subscribe = false;
@@ -122,7 +129,12 @@ export default function ModalSelect(props: {
           ))}
         {list.length < 1 && !loading && (
           <div style={{ padding: 30, textAlign: 'center' }}>
-            {props.asyncOnSearch ? 'Type to search' : 'Data not found'}
+            {props.asyncOnSearch ? 'Type to search' : [
+              error && (props.errorComponent && props.errorComponent.length)
+              ? props.errorComponent 
+              : [<div style={{marginTop: 84}}>{defaultErrMessage}</div>,
+              <Button variant="primary" full={true} disabled={loading} style={{marginTop: 32}} onClick={() => {window.location.reload()}}>Refresh</Button>],
+            ]}
           </div>
         )}
         {loading && <div style={{ padding: 30, textAlign: 'center' }}>Loading...</div>}
