@@ -54,7 +54,7 @@ export default function ModalSelect(props: {
   options: any;
   label: string | ReactNode;
   placeholderSearch?: string;
-  errorComponent: ReactNode;
+  errorComponent?: ReactNode;
 }) {
   const inputRef: any = React.useRef(null);
   const [list, setList] = React.useState(props.options || []);
