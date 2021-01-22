@@ -25,6 +25,7 @@ interface Props extends Modify<React.SelectHTMLAttributes<HTMLSelectElement>, {
     required?: boolean;
     placeholderSearch?: string;
     errorComponent?: ReactNode;
+    buttonRefreshText?: string;
 }
 declare function Select(props: Props): JSX.Element;
 export default Select;

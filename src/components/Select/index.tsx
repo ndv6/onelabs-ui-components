@@ -47,6 +47,7 @@ interface Props
   required?: boolean;
   placeholderSearch?: string;
   errorComponent?: ReactNode;
+  buttonRefreshText?: string;
 }
 
 function getValue(d: any) {
@@ -76,6 +77,7 @@ function Select(props: Props) {
     native,
     placeholderSearch,
     errorComponent,
+    buttonRefreshText,
     ...rest
   } = props;
   const [selected, setSelected] = React.useState(defaultValue || undefined);
@@ -146,6 +148,7 @@ function Select(props: Props) {
             placeholderSearch={placeholderSearch}
             onFilter={onFilter}
             errorComponent={errorComponent}
+            buttonRefreshText={buttonRefreshText}
           />
         </Modal>
       )}
