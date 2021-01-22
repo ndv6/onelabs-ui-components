@@ -38,6 +38,23 @@ export const AsyncOptions = () => (
     label="Pilih Data"
   />
 );
+
+export const AsyncOptionsWithErrorComp = () => (
+  <Select
+    errorComponent={<div>lmao</div>}
+    asyncOptions={() =>
+      fetch('https://raw.githubusercontent.com/substack/provinces/master/provinces.json').then(
+        async res => {
+          const json = await res.json();
+          return json.map(d => ({ label: d.name, value: d.name }));
+        },
+      )
+    }
+    placeholder="Tap to select"
+    label="Pilih Data"
+  />
+);
+
 export const AsyncOnSearch = () => (
   <Select
     asyncOnSearch={keyword =>

@@ -128,11 +128,10 @@ export default function ModalSelect(props) {
             })
                 .map(function (d, i) { return (React.createElement(Button, { key: i, onClick: function () { return props.onSelect(d); }, className: styles.option, full: true }, d.label || d.name || d.title)); }),
             list.length < 1 && !loading && (React.createElement("div", { style: { padding: 30, textAlign: 'center' } }, props.asyncOnSearch ? 'Type to search' :
-                React.createElement(React.Fragment, null, error && props.errorComponent
-                    ? props.errorComponent
-                    : React.createElement(React.Fragment, null,
-                        React.createElement(Text, { size: 16, style: { marginTop: 84 } }, defaultErrMessage),
-                        React.createElement(Button, { variant: "primary", full: true, disabled: loading, style: { marginTop: 32 }, onClick: function () { window.location.reload(); } }, "Refresh"))))),
+                React.createElement(React.Fragment, null, error &&
+                    React.createElement(React.Fragment, null,
+                        props.errorComponent ? props.errorComponent : React.createElement(Text, { size: 16, style: { marginTop: 84, marginBottom: 30 } }, defaultErrMessage),
+                        React.createElement(Button, { variant: "primary", full: true, disabled: loading, style: { marginTop: 0 }, onClick: function () { return asyncCall(props.asyncOptions ? props.asyncOptions : function () { }, setList, setLoading, true, setError); } }, props.buttonRefreshText ? props.buttonRefreshText : 'Refresh'))))),
             loading && React.createElement("div", { style: { padding: 30, textAlign: 'center' } }, "Loading..."))));
 }
 //# sourceMappingURL=ModalSelect.js.map

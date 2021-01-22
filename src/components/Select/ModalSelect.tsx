@@ -55,6 +55,7 @@ export default function ModalSelect(props: {
   label: string | ReactNode;
   placeholderSearch?: string;
   errorComponent?: ReactNode;
+  buttonRefreshText?: string;
 }) {
   const inputRef: any = React.useRef(null);
   const [list, setList] = React.useState(props.options || []);
@@ -133,12 +134,11 @@ export default function ModalSelect(props: {
           <div style={{ padding: 30, textAlign: 'center' }}>
             {props.asyncOnSearch ? 'Type to search' : 
             <>
-              {error && props.errorComponent
-              ? props.errorComponent 
-              : <>
-                  <Text size={16} style={{marginTop: 84}}>{defaultErrMessage}</ Text>
-                  <Button variant="primary" full={true} disabled={loading} style={{marginTop: 32}} onClick={() => {window.location.reload()}}>Refresh</Button>
-                </>}
+              {error && 
+              <> 
+                {props.errorComponent ? props.errorComponent : <Text size={16} style={{marginTop: 84, marginBottom: 30}}>{defaultErrMessage}</ Text>}
+                <Button variant="primary" full={true} disabled={loading} style={{marginTop: 0}} onClick={() => asyncCall(props.asyncOptions ? props.asyncOptions : () => {}, setList, setLoading, true, setError)}>{props.buttonRefreshText ? props.buttonRefreshText : 'Refresh'}</Button>
+              </>}
             </>}
           </div>
         )}

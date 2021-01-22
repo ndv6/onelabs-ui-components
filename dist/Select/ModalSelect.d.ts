@@ -16,5 +16,6 @@ export default function ModalSelect(props: {
     label: string | ReactNode;
     placeholderSearch?: string;
     errorComponent?: ReactNode;
+    buttonRefreshText?: string;
 }): JSX.Element;
 export {};
