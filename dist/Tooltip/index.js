@@ -14,7 +14,7 @@ export default function Tooltip(props) {
             React.createElement(Flex, { justifyContent: "space-between", alignItems: "flex-start" },
                 React.createElement("span", { style: { marginRight: 10 } },
                     React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", viewBox: "0 0 24 24" },
-                        React.createElement("g", { fill: "none", "fill-rule": "evenodd" },
+                        React.createElement("g", { fill: "none", fillRule: "evenodd" },
                             React.createElement("g", null,
                                 React.createElement("g", null,
                                     React.createElement("g", null,
