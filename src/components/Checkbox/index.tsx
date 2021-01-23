@@ -6,11 +6,11 @@ const CheckedIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
       <defs>
           <linearGradient id="5dv7zurypa" x1="13.368%" x2="87.636%" y1="16.036%" y2="81.312%">
-              <stop offset="0%" stop-color="#F14545"/>
-              <stop offset="100%" stop-color="#C41432"/>
+              <stop offset="0%" stopColor="#F14545"/>
+              <stop offset="100%" stopColor="#C41432"/>
           </linearGradient>
       </defs>
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
           <g fill="url(#5dv7zurypa)" transform="translate(-16 -638)">
               <g>
                   <g transform="translate(0 622) translate(16 16)">
@@ -22,7 +22,7 @@ const CheckedIcon = () => (
     </svg>
 
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
           <g fill="#FFF">
               <g>
                   <g>
@@ -39,7 +39,7 @@ const CheckedIcon = () => (
 
 const CheckedDisabled = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fillRule="evenodd">
         <g fill="#EB2629">
             <g>
                 <path d="M21 4.658c.481-.488 1.272-.498 1.766-.022.449.433.498 1.119.141 1.606l-.12.14-12.79 12.96c-.452.458-1.174.493-1.668.107l-.128-.116-6.569-6.785c-.477-.493-.46-1.274.04-1.745.453-.429 1.147-.454 1.628-.084l.138.122 5.674 5.861L21 4.658z" transform="translate(-32 -278) translate(32 278)"/>
@@ -62,7 +62,7 @@ const UnCheckedIcon = () => (
         </filter>
         <rect id="5qcuvvij1a" width="24" height="24" x="0" y="0" rx="4"/>
     </defs>
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fillRule="evenodd">
         <g>
             <g>
                 <g transform="translate(-16 -638) translate(0 622) translate(16 16)">
@@ -86,7 +86,7 @@ const RadioBorder = () => (
           </filter>
           <circle id="e8oleaybua" cx="12" cy="12" r="12"/>
       </defs>
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
           <g>
               <g transform="translate(-32 -462) translate(32 462)">
                   <use fill="#FFF" href="#e8oleaybua"/>
@@ -101,11 +101,11 @@ const RadioFiller = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
     <defs>
         <linearGradient id="g39ug4eaea" x1="13.368%" x2="87.636%" y1="16.036%" y2="81.312%">
-            <stop offset="0%" stop-color="#F14545"/>
-            <stop offset="100%" stop-color="#C41432"/>
+            <stop offset="0%" stopColor="#F14545"/>
+            <stop offset="100%" stopColor="#C41432"/>
         </linearGradient>
     </defs>
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fillRule="evenodd">
         <g fill="url(#g39ug4eaea)" transform="translate(-38 -468)">
             <g transform="translate(32 462)">
                 <circle cx="12" cy="12" r="6"/>
@@ -119,11 +119,11 @@ const RadioDisabled = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
     <defs>
         <linearGradient id="9r13h1ct8a" x1="0%" x2="100%" y1="50%" y2="50%">
-            <stop offset="0%" stop-color="#E7E7E7"/>
-            <stop offset="100%" stop-color="#BDBDBD"/>
+            <stop offset="0%" stopColor="#E7E7E7"/>
+            <stop offset="100%" stopColor="#BDBDBD"/>
         </linearGradient>
     </defs>
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fillRule="evenodd">
         <g fill="url(#9r13h1ct8a)" transform="translate(-38 -284)">
             <g transform="translate(32 278)">
                 <circle cx="12" cy="12" r="6"/>
