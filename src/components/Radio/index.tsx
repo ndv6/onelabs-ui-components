@@ -69,8 +69,6 @@ interface Props {
     disabled?: boolean;
     onChange?: (args: boolean) => void;
     size?: 'default' | 'small' | 'large';
-    radio?: boolean;
-    type?: 'check';
 }
 
 function RadioButton(props: Props) {
