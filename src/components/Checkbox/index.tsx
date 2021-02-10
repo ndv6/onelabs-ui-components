@@ -197,7 +197,7 @@ function Checkbox(props: Props) {
       ].join(' ')}
     >
       <input
-        className={styles.input}
+        className={`${styles.input} ga-checkbox`}
         checked={htmlChecked}
         onChange={onChangeInput}
         type="checkbox"

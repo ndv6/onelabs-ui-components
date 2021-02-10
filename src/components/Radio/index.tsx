@@ -97,14 +97,13 @@ function RadioButton(props: Props) {
     }
 
     return (
-    <div
-        className={[
+    <div className={[
         styles.checkbox,
         disabled ? styles.disabled : '',
         ].join(' ')}
     >
         <input
-        className={styles.input}
+        className={`${styles.input} ga-radio`}
         checked={htmlChecked}
         onChange={onChangeInput}
         type="checkbox"

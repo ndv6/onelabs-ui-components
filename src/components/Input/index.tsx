@@ -58,13 +58,14 @@ function Input(props: Props) {
             ref={innerRef}
             type={htmlType || type}
             {...rest}
+            className="ga-input"
             onKeyPress={event => isNaN(event.key as any) && event.preventDefault()}
             onKeyDown={event =>
               event.keyCode === 69 || event.keyCode === 190 ? event.preventDefault() : false
             }
           />
         ) : (
-          <input ref={innerRef} type={htmlType || type} {...rest} />
+          <input className="ga-input" ref={innerRef} type={htmlType || type} {...rest} />
         )}
         {loading && <div className={styles.loading} />}
         {icon}

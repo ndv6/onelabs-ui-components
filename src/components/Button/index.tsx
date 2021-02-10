@@ -35,7 +35,7 @@ function Button(props: Props) {
   }
 
   return (
-    <button type={rest.type || 'button'} onClick={onClick} className={classnames} {...rest}>
+    <button type={rest.type || 'button'} onClick={onClick} className={`${classnames} ga-button`} {...rest}>
       {children}
     </button>
   );
