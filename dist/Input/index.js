@@ -41,9 +41,9 @@ function Input(props) {
             label,
             required && React.createElement("span", { className: styles.required }, "*"))),
         React.createElement("div", { className: styles.wrapper },
-            type === 'number' ? (React.createElement("input", __assign({ ref: innerRef, type: htmlType || type }, rest, { onKeyPress: function (event) { return isNaN(event.key) && event.preventDefault(); }, onKeyDown: function (event) {
+            type === 'number' ? (React.createElement("input", __assign({ ref: innerRef, type: htmlType || type }, rest, { className: "ga-input", onKeyPress: function (event) { return isNaN(event.key) && event.preventDefault(); }, onKeyDown: function (event) {
                     return event.keyCode === 69 || event.keyCode === 190 ? event.preventDefault() : false;
-                } }))) : (React.createElement("input", __assign({ ref: innerRef, type: htmlType || type }, rest))),
+                } }))) : (React.createElement("input", __assign({ className: "ga-input", ref: innerRef, type: htmlType || type }, rest))),
             loading && React.createElement("div", { className: styles.loading }),
             icon,
             type === 'password' && (React.createElement(Button, { onClick: function () { return setHtmlType(function (prev) { return (prev === 'text' ? 'password' : 'text'); }); } },

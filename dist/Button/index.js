@@ -44,7 +44,7 @@ function Button(props) {
             history.push(href);
         return;
     }
-    return (React.createElement("button", __assign({ type: rest.type || 'button', onClick: onClick, className: classnames }, rest), children));
+    return (React.createElement("button", __assign({ type: rest.type || 'button', onClick: onClick, className: classnames + " ga-button" }, rest), children));
 }
 export default Button;
 //# sourceMappingURL=index.js.map

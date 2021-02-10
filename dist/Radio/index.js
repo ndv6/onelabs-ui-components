@@ -57,7 +57,7 @@ function RadioButton(props) {
             styles.checkbox,
             disabled ? styles.disabled : '',
         ].join(' ') },
-        React.createElement("input", { className: styles.input, checked: htmlChecked, onChange: onChangeInput, type: "checkbox" }),
+        React.createElement("input", { className: styles.input + " ga-radio", checked: htmlChecked, onChange: onChangeInput, type: "checkbox" }),
         disabled ? (React.createElement("span", { className: styles.radioChecked, style: { width: chosenSize, height: chosenSize } },
             React.createElement(RadioBorder, { size: chosenSize }),
             React.createElement(RadioDisabled, { size: htmlChecked ? Math.round(chosenSize / 2) : 0 }))) :

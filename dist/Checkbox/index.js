@@ -107,7 +107,7 @@ function Checkbox(props) {
             disabled ? styles.disabled : '',
             size === 'small' ? styles.small : '',
         ].join(' ') },
-        React.createElement("input", { className: styles.input, checked: htmlChecked, onChange: onChangeInput, type: "checkbox" }),
+        React.createElement("input", { className: styles.input + " ga-checkbox", checked: htmlChecked, onChange: onChangeInput, type: "checkbox" }),
         React.createElement("div", null, htmlChecked ? iconChecked : iconUnChecked),
         React.createElement("span", { className: styles.label }, children)));
 }
