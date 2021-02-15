@@ -20,7 +20,7 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React from 'react';
+import React, { useCallback } from 'react';
 import Button from '../Button';
 import { createClassName, metaError } from '../helpers';
 import styles from './Input.module.css';
@@ -29,21 +29,31 @@ var EyeSvg = function () { return (React.createElement("svg", { width: 26, heigh
 var classNames = createClassName(styles);
 function Input(props) {
     var _a;
-    var children = props.children, label = props.label, className = props.className, loading = props.loading, error = props.error, type = props.type, icon = props.icon, required = props.required, innerRef = props.innerRef, rest = __rest(props, ["children", "label", "className", "loading", "error", "type", "icon", "required", "innerRef"]);
+    var children = props.children, label = props.label, className = props.className, loading = props.loading, error = props.error, type = props.type, icon = props.icon, required = props.required, innerRef = props.innerRef, maxLength = props.maxLength, rest = __rest(props, ["children", "label", "className", "loading", "error", "type", "icon", "required", "innerRef", "maxLength"]);
     var _b = React.useState(''), htmlType = _b[0], setHtmlType = _b[1];
     var classnames = classNames((_a = {},
         _a["" + className] = !!className,
         _a.error = !!metaError(error),
         _a.disabled = props.disabled,
         _a));
+    var handleKeyPress = useCallback(function (e) {
+        if (isNaN(e.key))
+            e.preventDefault();
+        if (maxLength) {
+            if (e.target.value.length >= maxLength) {
+                e.preventDefault();
+                return;
+            }
+        }
+    }, [maxLength]);
     return (React.createElement("div", { className: classnames },
         label && (React.createElement("label", { className: styles.label },
             label,
             required && React.createElement("span", { className: styles.required }, "*"))),
         React.createElement("div", { className: styles.wrapper },
-            type === 'number' ? (React.createElement("input", __assign({ ref: innerRef, type: htmlType || type }, rest, { className: "ga-input", onKeyPress: function (event) { return isNaN(event.key) && event.preventDefault(); }, onKeyDown: function (event) {
+            type === 'number' ? (React.createElement("input", __assign({}, rest, { ref: innerRef, type: htmlType || type, className: "ga-input", onKeyPress: handleKeyPress, onKeyDown: function (event) {
                     return event.keyCode === 69 || event.keyCode === 190 ? event.preventDefault() : false;
-                } }))) : (React.createElement("input", __assign({ className: "ga-input", ref: innerRef, type: htmlType || type }, rest))),
+                } }))) : (React.createElement("input", __assign({ className: "ga-input", ref: innerRef, type: htmlType || type, maxLength: maxLength }, rest))),
             loading && React.createElement("div", { className: styles.loading }),
             icon,
             type === 'password' && (React.createElement(Button, { onClick: function () { return setHtmlType(function (prev) { return (prev === 'text' ? 'password' : 'text'); }); } },

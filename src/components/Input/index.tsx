@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useCallback } from 'react';
 import Button from '../Button';
 import { createClassName, metaError } from '../helpers';
 import styles from './Input.module.css';
@@ -23,6 +23,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   required?: boolean;
   icon?: any;
   innerRef?: any;
+  maxLength?: number;
 }
 
 function Input(props: Props) {
@@ -36,14 +37,29 @@ function Input(props: Props) {
     icon,
     required,
     innerRef,
+    maxLength,
     ...rest
   } = props;
+
   const [htmlType, setHtmlType] = React.useState('');
   const classnames = classNames({
     [`${className}`]: !!className,
     error: !!metaError(error),
     disabled: props.disabled,
   });
+
+  const handleKeyPress = useCallback((e: any) => {
+    if (isNaN(e.key))
+      e.preventDefault()
+    
+    if (maxLength) {
+      if (e.target.value.length >= maxLength) {
+        e.preventDefault();
+        return;
+      }
+    }
+  }, [maxLength])
+
   return (
     <div className={classnames}>
       {label && (
@@ -55,17 +71,17 @@ function Input(props: Props) {
       <div className={styles.wrapper}>
         {type === 'number' ? (
           <input
-            ref={innerRef}
-            type={htmlType || type}
-            {...rest}
-            className="ga-input"
-            onKeyPress={event => isNaN(event.key as any) && event.preventDefault()}
-            onKeyDown={event =>
-              event.keyCode === 69 || event.keyCode === 190 ? event.preventDefault() : false
-            }
+          {...rest}
+          ref={innerRef}
+          type={htmlType || type}
+          className="ga-input"
+          onKeyPress={handleKeyPress}
+          onKeyDown={event =>
+            event.keyCode === 69 || event.keyCode === 190 ? event.preventDefault() : false
+          }
           />
         ) : (
-          <input className="ga-input" ref={innerRef} type={htmlType || type} {...rest} />
+          <input className="ga-input" ref={innerRef} type={htmlType || type} maxLength={maxLength} {...rest} />
         )}
         {loading && <div className={styles.loading} />}
         {icon}
