@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../components/Button';
 
-export const Default = () => <Button>Default</Button>;
+export const Default = () => <Button className={'lmao'}>Default</Button>;
 export const Rounded = () => (
   <Button variant="primary" style={{ width: 60, height: 60 }} rounded>
     R
