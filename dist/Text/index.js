@@ -27,9 +27,7 @@ function Text(props) {
     return (React.createElement("div", __assign({ style: __assign({ fontSize: size, color: color, fontWeight: bold ? 700 : undefined }, style) }, rest, { className: [styles.text, className].join(' ') }), children));
 }
 function Title(props) {
-    var children = props.children, rest = __rest(props, ["children"]);
-    var childEl = React.createElement("h1", { className: styles.heading }, props.children);
-    return React.createElement(Text, __assign({}, rest, { children: childEl, className: styles.title }));
+    return React.createElement(Text, __assign({}, props, { className: styles.title }));
 }
 Text.Title = Title;
 export default Text;
