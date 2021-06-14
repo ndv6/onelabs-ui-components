@@ -8,6 +8,7 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     full?: boolean;
     href?: string;
     loading?: boolean;
+    anchor?: boolean;
 }
 declare function Button(props: Props): JSX.Element;
 export default Button;

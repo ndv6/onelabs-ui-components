@@ -27,7 +27,7 @@ import styles from './Button.module.css';
 var classNames = createClassName(styles);
 function Button(props) {
     var _a;
-    var children = props.children, variant = props.variant, full = props.full, rounded = props.rounded, className = props.className, href = props.href, loading = props.loading, size = props.size, rest = __rest(props, ["children", "variant", "full", "rounded", "className", "href", "loading", "size"]);
+    var children = props.children, variant = props.variant, full = props.full, rounded = props.rounded, className = props.className, href = props.href, loading = props.loading, size = props.size, anchor = props.anchor, rest = __rest(props, ["children", "variant", "full", "rounded", "className", "href", "loading", "size", "anchor"]);
     var history = useHistory();
     var classnames = classNames((_a = {},
         _a["" + className] = !!className,
@@ -44,7 +44,7 @@ function Button(props) {
             history.push(href);
         return;
     }
-    return (React.createElement("button", __assign({ type: rest.type || 'button', onClick: onClick, className: "" + classnames }, rest), children));
+    return (React.createElement("button", __assign({ type: rest.type || 'button', onClick: onClick, className: "" + classnames }, rest), anchor ? (React.createElement("a", { href: href, className: styles.anchorStyle }, children)) : children));
 }
 export default Button;
 //# sourceMappingURL=index.js.map

@@ -144,6 +144,15 @@ button:disabled.secondary {
   padding: 0px;
 }
 
+.anchorStyle {
+  pointer-events: none;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
 @media only screen and (min-width: 768px) {
   .primary:hover {
     background-image: var(--primary-button-color-hover);
