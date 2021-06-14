@@ -14,10 +14,11 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   full?: boolean;
   href?: string;
   loading?: boolean;
+  anchor?: boolean;
 }
 
 function Button(props: Props) {
-  const { children, variant, full, rounded, className, href, loading, size, ...rest } = props;
+  const { children, variant, full, rounded, className, href, loading, size, anchor, ...rest } = props;
   const history = useHistory();
   const classnames = classNames({
     [`${className}`]: !!className,
@@ -36,7 +37,11 @@ function Button(props: Props) {
 
   return (
     <button type={rest.type || 'button'} onClick={onClick} className={`${classnames}`} {...rest}>
-      {children}
+      {
+        anchor ? (
+          <a href={href} className={styles.anchorStyle}>{children}</a>
+        ) : children
+      }
     </button>
   );
 }

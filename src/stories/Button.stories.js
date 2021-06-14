@@ -54,6 +54,12 @@ export const Loading = () => (
   </Button>
 );
 
+export const ButtonAnchor = () => (
+  <Button variant="primary" anchor href="/lmao">
+    Anchor
+  </Button>
+);
+
 export default {
   title: 'Elements | Button',
   component: Button,
