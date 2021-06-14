@@ -24,10 +24,11 @@ function Text(props: Props) {
 }
 
 function Title(props: Props) {
+  const {children, ...rest} = props;
   const childEl = <h1 className={styles.heading}>
     {props.children}
   </h1>
-  return <Text children={childEl} className={styles.title} />;
+  return <Text {...rest} children={childEl} className={styles.title} />;
 }
 
 Text.Title = Title;
