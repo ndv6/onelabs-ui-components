@@ -151,6 +151,7 @@ button:disabled.secondary {
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
+  color: inherit;
 }
 
 @media only screen and (min-width: 768px) {
