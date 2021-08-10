@@ -63,7 +63,27 @@ function Input(props: Props) {
   const generateExtraProps = (type: string | undefined) => {
     switch(type) {
       case 'alphabet':
-        return {onKeyDown: (event: any) => ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || event.keyCode == 8) ? false : event.preventDefault()}
+        // return {onKeyDown: (event: any) => ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || event.keyCode == 8 || event.keyCode == 32 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 16 || event.keyCode == 20) ? false : event.preventDefault()}
+        return {
+          onKeyPress: (event: any) => {
+            switch (event.keyCode) {
+              case 8:  // Backspace
+              case 9:  // Tab
+              case 13: // Enter
+              case 32: // Space
+              case 37: // Left
+              case 38: // Up
+              case 39: // Right
+              case 40: // Down
+              break;
+              default:
+              if (!/^[a-zA-Z\s]*$/.test(event.key)) {
+                  event.preventDefault();
+              }
+              break;
+            }
+          }
+        }
       case 'number':
         return {onKeyPress: handleKeyPressNumber, onKeyDown: (event: any) => event.keyCode === 69 || event.keyCode === 190 ? event.preventDefault() : false}
       default:
