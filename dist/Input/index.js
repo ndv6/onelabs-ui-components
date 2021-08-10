@@ -36,7 +36,7 @@ function Input(props) {
         _a.error = !!metaError(error),
         _a.disabled = props.disabled,
         _a));
-    var handleKeyPress = useCallback(function (e) {
+    var handleKeyPressNumber = useCallback(function (e) {
         if (isNaN(e.key))
             e.preventDefault();
         if (maxLength) {
@@ -46,14 +46,22 @@ function Input(props) {
             }
         }
     }, [maxLength]);
+    var generateExtraProps = function (type) {
+        switch (type) {
+            case 'alphabet':
+                return { onKeyDown: function (event) { return ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || event.keyCode == 8) ? false : event.preventDefault(); } };
+            case 'number':
+                return { onKeyPress: handleKeyPressNumber, onKeyDown: function (event) { return event.keyCode === 69 || event.keyCode === 190 ? event.preventDefault() : false; } };
+            default:
+                return {};
+        }
+    };
     return (React.createElement("div", { className: classnames },
         label && (React.createElement("label", { className: styles.label },
             label,
             required && React.createElement("span", { className: styles.required }, "*"))),
         React.createElement("div", { className: styles.wrapper },
-            type === 'number' ? (React.createElement("input", __assign({}, rest, { ref: innerRef, type: htmlType || type, className: "ga-input", onKeyPress: handleKeyPress, onKeyDown: function (event) {
-                    return event.keyCode === 69 || event.keyCode === 190 ? event.preventDefault() : false;
-                } }))) : (React.createElement("input", __assign({ className: "ga-input", ref: innerRef, type: htmlType || type, maxLength: maxLength }, rest))),
+            React.createElement("input", __assign({ className: "ga-input", ref: innerRef, type: htmlType || type, maxLength: maxLength }, rest, generateExtraProps(type))),
             loading && React.createElement("div", { className: styles.loading }),
             icon,
             type === 'password' && (React.createElement(Button, { onClick: function () { return setHtmlType(function (prev) { return (prev === 'text' ? 'password' : 'text'); }); } },

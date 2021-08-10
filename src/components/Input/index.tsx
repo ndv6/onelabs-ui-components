@@ -15,6 +15,8 @@ const EyeSvg = () => (
 
 const classNames = createClassName(styles);
 
+type INPUT_TYPE = 'number' | 'alphabet' | 'password' | 'text' | undefined
+
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | ReactNode;
   error?: any;
@@ -24,6 +26,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: any;
   innerRef?: any;
   maxLength?: number;
+  type?: INPUT_TYPE;
 }
 
 function Input(props: Props) {
@@ -48,7 +51,7 @@ function Input(props: Props) {
     disabled: props.disabled,
   });
 
-  const handleKeyPress = useCallback((e: any) => {
+  const handleKeyPressNumber = useCallback((e: any) => {
     if (isNaN(e.key))
       e.preventDefault()
     
@@ -60,6 +63,17 @@ function Input(props: Props) {
     }
   }, [maxLength])
 
+  const generateExtraProps = (type: INPUT_TYPE) => {
+    switch(type) {
+      case 'alphabet':
+        return {onKeyDown: (event: any) => ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || event.keyCode == 8) ? false : event.preventDefault()}
+      case 'number':
+        return {onKeyPress: handleKeyPressNumber, onKeyDown: (event: any) => event.keyCode === 69 || event.keyCode === 190 ? event.preventDefault() : false}
+      default:
+        return {} 
+    }
+  }
+
   return (
     <div className={classnames}>
       {label && (
@@ -69,20 +83,7 @@ function Input(props: Props) {
         </label>
       )}
       <div className={styles.wrapper}>
-        {type === 'number' ? (
-          <input
-          {...rest}
-          ref={innerRef}
-          type={htmlType || type}
-          className="ga-input"
-          onKeyPress={handleKeyPress}
-          onKeyDown={event =>
-            event.keyCode === 69 || event.keyCode === 190 ? event.preventDefault() : false
-          }
-          />
-        ) : (
-          <input className="ga-input" ref={innerRef} type={htmlType || type} maxLength={maxLength} {...rest} />
-        )}
+        <input className="ga-input" ref={innerRef} type={htmlType || type}  maxLength={maxLength} {...rest} {...generateExtraProps(type)}/>
         {loading && <div className={styles.loading} />}
         {icon}
         {type === 'password' && (

@@ -7,6 +7,7 @@ export const Loading = () => <Input placeholder="Tap to type" label="Username" l
 export const Password = () => <Input type="password" placeholder="Tap to type" label="Username" />;
 export const Required = () => <Input placeholder="Tap to type" maxLength={5} label="Username" required />;
 export const TypeNumber = () => <Input placeholder="Tap to type" label="NIK" required type="number" />;
+export const AlphabetType = () => <Input placeholder="Tap to type" label="NIK" required type="alphabet" />;
 export const MaxLengthNumber = () => <Input placeholder="Tap to type" label="NIK" required type="number" maxLength={5} />;
 export const MaxLengthString = () => <Input placeholder="Tap to type" label="String" required maxLength={5} />;
 export const WithError = () => (
