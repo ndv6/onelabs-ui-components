@@ -14,9 +14,6 @@ const EyeSvg = () => (
 );
 
 const classNames = createClassName(styles);
-
-type INPUT_TYPE = 'number' | 'alphabet' | 'password' | 'text' | undefined
-
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | ReactNode;
   error?: any;
@@ -26,7 +23,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: any;
   innerRef?: any;
   maxLength?: number;
-  type?: INPUT_TYPE;
+  type?: string;
 }
 
 function Input(props: Props) {
@@ -63,7 +60,7 @@ function Input(props: Props) {
     }
   }, [maxLength])
 
-  const generateExtraProps = (type: INPUT_TYPE) => {
+  const generateExtraProps = (type: string | undefined) => {
     switch(type) {
       case 'alphabet':
         return {onKeyDown: (event: any) => ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || event.keyCode == 8) ? false : event.preventDefault()}
