@@ -34,7 +34,12 @@ function Card(props: Props) {
 
   if (props.type && props.type === 'checkbox') {
     children = (
-      <Checkbox radio={props.radio} checked={props.checked} disabled={props.disabled} onChange={props.onClick}>
+      <Checkbox
+        radio={props.radio}
+        checked={props.checked}
+        disabled={props.disabled}
+        onChange={props.onClick}
+      >
         {props.children}
       </Checkbox>
     );
@@ -42,7 +47,12 @@ function Card(props: Props) {
 
   if (props.type && props.type === 'check') {
     children = (
-      <Checkbox type="check" checked={props.checked} disabled={props.disabled} onChange={props.onClick}>
+      <Checkbox
+        type="check"
+        checked={props.checked}
+        disabled={props.disabled}
+        onChange={props.onClick}
+      >
         {props.children}
       </Checkbox>
     );

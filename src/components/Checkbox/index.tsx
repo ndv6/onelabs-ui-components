@@ -139,11 +139,11 @@ interface Props {
   disabled?: boolean;
   onChange?: (args: boolean) => void;
   size?: 'default' | 'small';
-  type?: 'round';
+  checkType?: 'round';
 }
 
 function Checkbox(props: Props) {
-  const { children, disabled, size, checked, onChange, type } = props;
+  const { children, disabled, size, checked, onChange, checkType } = props;
   const [htmlChecked, setHtmlChecked] = React.useState(false);
   function onChangeInput() {
     if (onChange) {
@@ -163,7 +163,7 @@ function Checkbox(props: Props) {
     iconChecked = <DisabledCheckedIcon />;
   }
 
-  if (type === 'round') {
+  if (checkType === 'round') {
     iconChecked = <RoundCheckedIcon />;
     iconUnChecked = <RoundUnCheckedIcon />;
 
