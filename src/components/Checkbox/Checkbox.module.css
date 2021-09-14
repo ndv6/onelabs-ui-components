@@ -21,44 +21,11 @@
   height: 20px;
 }
 
-.disabled, .disabledChecked {
+.disabled {
   pointer-events: none;
-  position: relative;
-}
-
-.disabledChecked {
-  display: inline-block;
-}
-
-.disabledChecked:after {
-  content: '';
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  top: 0;
-  left: 0;
-  filter: grayscale(100%);
-  background: red;
-  border-radius: 3px;
 }
 
 .label {
   padding-left: 10px;
   align-self: center;
 }
-
-.radioChecked, .checked {
-  position: relative;
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  pointer-events: none;
-}
-.radioChecked svg:last-child, .checked svg:last-child {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
-
