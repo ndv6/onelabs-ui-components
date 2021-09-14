@@ -1,0 +1,38 @@
+.skeleton {
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #cdcdcd;
+  background-image: -webkit-gradient(
+    linear,
+    left center,
+    right center,
+    from(#cdcdcd),
+    color-stop(0.2, #dedfe1),
+    color-stop(0.4, #cdcdcd),
+    to(#cdcdcd)
+  );
+  background-image: -webkit-linear-gradient(
+    left,
+    #cdcdcd 0%,
+    #dedfe1 20%,
+    #cdcdcd 40%,
+    #cdcdcd 100%
+  );
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  min-height: 16px;
+  margin-bottom: 15;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
+}
