@@ -2,7 +2,7 @@ import React from 'react';
 import Text from '../Text';
 import styles from './InputSlider.module.css';
 
-export default function InputSlider(props: any) {
+function InputSlider(props: any) {
   function thousands_separators(num: any) {
     var num_parts = ('' + num).split('.');
     num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
@@ -27,3 +27,4 @@ export default function InputSlider(props: any) {
     </div>
   );
 }
+export default InputSlider;

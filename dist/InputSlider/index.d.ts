@@ -1,1 +1,2 @@
-export default function InputSlider(props: any): JSX.Element;
+declare function InputSlider(props: any): JSX.Element;
+export default InputSlider;

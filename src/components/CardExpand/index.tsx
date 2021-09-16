@@ -31,7 +31,7 @@ interface CardExpandProps {
   };
 }
 
-export default function CardExpand(props: CardExpandProps) {
+function CardExpand(props: CardExpandProps) {
   const [expand, setExpand] = useState(props.expand || props.expand === undefined ? false : true);
 
   return (
@@ -67,3 +67,4 @@ export default function CardExpand(props: CardExpandProps) {
     </div>
   );
 }
+export default CardExpand;

@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import React from 'react';
 import Text from '../Text';
 import styles from './InputSlider.module.css';
-export default function InputSlider(props) {
+function InputSlider(props) {
     function thousands_separators(num) {
         var num_parts = ('' + num).split('.');
         num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
@@ -30,4 +30,5 @@ export default function InputSlider(props) {
         React.createElement("div", { className: styles.slidercontainer },
             React.createElement("input", __assign({ type: "range" }, props, { style: rangeStyle })))));
 }
+export default InputSlider;
 //# sourceMappingURL=index.js.map

@@ -10,5 +10,5 @@ interface CardExpandProps {
         action?: ReactNode;
     };
 }
-export default function CardExpand(props: CardExpandProps): JSX.Element;
-export {};
+declare function CardExpand(props: CardExpandProps): JSX.Element;
+export default CardExpand;
