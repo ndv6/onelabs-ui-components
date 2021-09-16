@@ -10,5 +10,7 @@ import Text from './Text';
 import Skeleton from './Skeleton';
 import Tag from './Tag';
 import Tooltip from './Tooltip';
-export { Button, Card, Checkbox, RadioButton, Flex, Input, Modal, Select, Text, Skeleton, Tag, Tooltip };
+import InputSlider from './InputSlider';
+import CardExpand from './CardExpand';
+export { Button, Card, Checkbox, RadioButton, Flex, Input, Modal, Select, Text, Skeleton, Tag, Tooltip, InputSlider, CardExpand, };
 //# sourceMappingURL=index.js.map
