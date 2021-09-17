@@ -59,6 +59,7 @@
     "typescript-plugin-css-modules": "^2.4.0"
   },
   "dependencies": {
-    "copyfiles": "^2.4.1"
+    "copyfiles": "^2.4.1",
+    "react-otp-input": "^2.4.0"
   }
 }

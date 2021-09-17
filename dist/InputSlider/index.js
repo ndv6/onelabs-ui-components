@@ -19,7 +19,7 @@ function InputSlider(props) {
         return num_parts.join('.');
     }
     var rangeStyle = {
-        backgroundSize: ((props.value - props.min) * 100) / (props.max - props.min) + '% 200%',
+        backgroundSize: ((props.value - props.min) * 100) / (props.max - props.min) + '% 100%',
     };
     return (React.createElement("div", { "data-testid": "date-picker" },
         React.createElement(Text, { bold: true }, props.label),

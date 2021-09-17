@@ -29,7 +29,8 @@
   --secondary-button-color-disabled: #667584;
   /* BORDER */
   --border-color: #c7c7c7;
-
+  --border-color-input: #949494;
+  --border-color-input-focus: #313131;
   /* INPUT */
   --input-placeholder: #c7c7c7;
   --input-label-font-size: 16px;

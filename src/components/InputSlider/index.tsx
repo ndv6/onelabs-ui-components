@@ -10,7 +10,7 @@ function InputSlider(props: any) {
   }
 
   let rangeStyle = {
-    backgroundSize: ((props.value - props.min) * 100) / (props.max - props.min) + '% 200%',
+    backgroundSize: ((props.value - props.min) * 100) / (props.max - props.min) + '% 100%',
   };
 
   return (
