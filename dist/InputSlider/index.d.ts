@@ -1,2 +1,2 @@
-declare function InputSlider(props: any, withText?: boolean): JSX.Element;
+declare function InputSlider(props: any): JSX.Element;
 export default InputSlider;

@@ -12,13 +12,13 @@ var __assign = (this && this.__assign) || function () {
 import React from 'react';
 import Text from '../Text';
 import styles from './InputSlider.module.css';
-function InputSlider(props, withText) {
+function InputSlider(props) {
     var rangeStyle = {
         backgroundSize: ((props.value - props.min) * 100) / (props.max - props.min) + '% 100%',
     };
     return (React.createElement("div", { "data-testid": "date-picker" },
         React.createElement(Text, { bold: true }, props.label),
-        (withText || withText === undefined) && (React.createElement(Text, null,
+        (props.withText || props.withText === undefined) && (React.createElement(Text, null,
             props.prefix,
             props.value,
             props.suffix)),
