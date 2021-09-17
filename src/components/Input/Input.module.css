@@ -32,7 +32,7 @@ input {
   border-bottom: 1px solid var(--border-color-input);
 }
 .wrapper input:focus {
-  border-bottom: 2px solid var(--border-color-input-focus);
+  border-bottom: 1px solid var(--border-color-input-focus);
 }
 
 .required {
@@ -63,7 +63,7 @@ input {
   width: 10px;
   height: 10px;
   background: 0 0;
-  border: 2px solid var(--border-color-input);
+  border: 1px solid var(--border-color-input);
   border-radius: 50%;
   -webkit-clip-path: inset(0 0 50% 0);
   clip-path: inset(0 0 50% 0);

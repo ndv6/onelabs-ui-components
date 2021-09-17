@@ -26,12 +26,19 @@ export const WithError = () => (
 );
 export const RangeSlider = () => {
   return (
+    <InputSlider label="Waktu" suffix=" bulan" min={1} max={60} value={30} onInput={() => {}} />
+  );
+};
+
+export const RangeSliderWithoutText = () => {
+  return (
     <InputSlider
-      label="Jumlah pinjaman"
-      prefix="IDR "
-      min={1000000}
-      max={10000000}
-      value={5000000}
+      withText={false}
+      label="Waktu"
+      suffix=" bulan"
+      min={1}
+      max={60}
+      value={30}
       onInput={() => {}}
     />
   );

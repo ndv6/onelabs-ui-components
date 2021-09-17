@@ -44,15 +44,15 @@
 }
 
 .slidercontainer [type='range']::-webkit-slider-thumb:hover {
-  border: solid 2px var(--border-color-input-focus);
+  border: solid 1px var(--border-color-input-focus);
 }
 
 .slidercontainer [type='range']::-moz-range-thumb:hover {
-  border: solid 2px var(--border-color-input-focus);
+  border: solid 1px var(--border-color-input-focus);
 }
 
 .slidercontainer [type='range']::-ms-thumb:hover {
-  border: solid 2px var(--border-color-input-focus);
+  border: solid 1px var(--border-color-input-focus);
 }
 
 /* Input Track */

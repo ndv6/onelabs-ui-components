@@ -1,28 +1,37 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Text from '../Text';
 import styles from './InputSlider.module.css';
 
-function InputSlider(props: any) {
-  function thousands_separators(num: any) {
-    var num_parts = ('' + num).split('.');
-    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    return num_parts.join('.');
-  }
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string | ReactNode;
+  value?: any;
+  min?: any;
+  max?: any;
+  prefix?: string;
+  suffix?: string;
+  withText?: boolean;
+}
+
+function InputSlider(props: Props) {
+  const { label, value, min, max, prefix, suffix, withText, ...rest } = props;
 
   let rangeStyle = {
-    backgroundSize: ((props.value - props.min) * 100) / (props.max - props.min) + '% 100%',
+    backgroundSize: ((value - min) * 100) / (max - min) + '% 100%',
   };
 
   return (
     <div data-testid="date-picker">
-      <Text bold>{props.label}</Text>
-      <Text>
-        {props.prefix}
-        {thousands_separators(props.value)}
-        {props.suffix}
-      </Text>
+      <Text bold>{label}</Text>
+      {withText ||
+        (withText === undefined && (
+          <Text>
+            {prefix}
+            {value}
+            {suffix}
+          </Text>
+        ))}
       <div className={styles.slidercontainer}>
-        <input type="range" {...props} style={rangeStyle} />
+        <input type="range" style={rangeStyle} {...rest} />
       </div>
     </div>
   );
