@@ -4,7 +4,7 @@ interface Props {
     className?: string;
     onClose: () => void;
     hideCloseButton?: boolean;
-    title: string | ReactNode;
+    title?: string | ReactNode;
     type?: 'default' | 'fullscreen';
 }
 declare function Modal(props: Props): React.ReactPortal;
