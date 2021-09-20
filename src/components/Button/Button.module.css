@@ -44,7 +44,7 @@ button {
   border-radius: var(--button-radius);
   border: solid 2px var(--secondary-button-border-color);
   color: var(--secondary-button-color);
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
 }
 
 .secondary:hover {
@@ -57,7 +57,7 @@ button {
   color: var(--font-color-dark);
   border: 1px solid var(--font-color-dark);
   background-image: none;
-  background: var(--white);
+  background: none;
 }
 
 .transparent {
@@ -76,7 +76,7 @@ button:disabled.ghost {
   border: transparent;
 }
 
-button:disabled.primary { 
+button:disabled.primary {
   color: #ffffff;
   background-color: var(--primary-button-bg-color-disabled);
   border: transparent;
@@ -85,7 +85,7 @@ button:disabled.primary {
   font-weight: normal;
 }
 
-button:disabled.secondary { 
+button:disabled.secondary {
   color: var(--secondary-button-color-disabled);
   background-color: var(--white);
   border: solid 2px var(--secondary-button-border-color-disabled);
