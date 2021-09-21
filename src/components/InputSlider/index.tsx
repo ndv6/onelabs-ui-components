@@ -11,7 +11,7 @@ function InputSlider(props: any) {
     <div data-testid="date-picker">
       <Text bold>{props.label}</Text>
       {(props.withText || props.withText === undefined) && (
-        <Text>
+        <Text style={{ paddingTop: 8, paddingBottom: 7 }}>
           {props.prefix}
           {props.value}
           {props.suffix}

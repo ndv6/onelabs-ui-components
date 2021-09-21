@@ -18,7 +18,7 @@ function InputSlider(props) {
     };
     return (React.createElement("div", { "data-testid": "date-picker" },
         React.createElement(Text, { bold: true }, props.label),
-        (props.withText || props.withText === undefined) && (React.createElement(Text, null,
+        (props.withText || props.withText === undefined) && (React.createElement(Text, { style: { paddingTop: 8, paddingBottom: 7 } },
             props.prefix,
             props.value,
             props.suffix)),
