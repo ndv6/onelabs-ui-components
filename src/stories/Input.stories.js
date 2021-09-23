@@ -24,6 +24,11 @@ export const MaxLengthString = () => (
 export const WithError = () => (
   <Input placeholder="Tap to type" label="Username" error="Please input username" />
 );
+
+export const Valid = () => <Input label="Username" value="Valid value" valid />;
+
+export const Verified = () => <Input label="Username" value="Valid value" verified />;
+
 export const RangeSlider = () => {
   return (
     <InputSlider label="Waktu" suffix=" bulan" min={1} max={60} value={30} onInput={() => {}} />
