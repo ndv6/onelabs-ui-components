@@ -10,6 +10,7 @@ interface Props {
     onChange?: (arg: boolean) => void;
     type?: 'checkbox' | 'default' | 'check';
     radio?: boolean;
+    className?: string;
 }
 declare function Card(props: Props): JSX.Element;
 declare namespace Card {
