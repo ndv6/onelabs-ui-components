@@ -38,6 +38,24 @@
   /* CARD */
   --card-disabled: #ececec;
   --card-active-color: linear-gradient(110deg, #6baa12 14%, #009e9b 87%);
+
+  /* onedna color pallete */
+  --dna-color-brand: #e30613;
+  --dna-color-white-bluish: #f3f4fb;
+  --dna-color-black-5: #ececec;
+  --dna-color-black-20: #d2d2d2;
+  --dna-color-black-40: #949494;
+  --dna-color-black-90: #313131;
+  --dna-color-red: #ea2f2a;
+  --dna-color-red-light: #f14545;
+  --dna-color-red-dark: #c41432;
+  --dna-color-red-gradient: linear-gradient(131.31deg, #f14545 14.62%, #c41432 84.68%);
+  --dna-color-blue: #1579d7;
+  --dna-color-green: #4ed07d;
+  --dna-color-turquoise: #44c6bf;
+  --dna-color-yellow: #faa94a;
+  --dna-color-yellow-light: #fff0ad;
+}
 }
 
 a,

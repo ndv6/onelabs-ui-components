@@ -77,8 +77,8 @@ button:disabled.ghost {
 }
 
 button:disabled.primary {
-  color: #ffffff;
-  background-color: var(--primary-button-bg-color-disabled);
+  color: var(--dna-color-black-40);
+  background-color: var(--dna-color-black-5);
   border: transparent;
   background-image: none;
   pointer-events: none;
