@@ -6,10 +6,10 @@
   position: relative;
   border: 4px solid var(--white);
   background: var(--white);
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
   background-clip: padding-box;
   padding: 20px;
 }
