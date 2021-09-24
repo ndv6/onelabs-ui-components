@@ -23,6 +23,7 @@ interface Props {
   onChange?: (arg: boolean) => void;
   type?: 'checkbox' | 'default' | 'check';
   radio?: boolean;
+  className?: string;
 }
 
 function Card(props: Props) {
@@ -31,6 +32,7 @@ function Card(props: Props) {
   if (props.onClick) className.push(styles.hasHover);
   if (props.selected || props.checked) className.push(styles.selected);
   if (props.disabled) className.push(styles.disabled);
+  if (props.className) className.push(props.className);
 
   if (props.type && props.type === 'checkbox') {
     children = (
