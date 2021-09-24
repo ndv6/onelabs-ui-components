@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { FocusEventHandler, ReactNode } from 'react';
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string | ReactNode;
     error?: any;
@@ -9,6 +9,10 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     innerRef?: any;
     maxLength?: number;
     type?: string;
+    valid?: boolean;
+    verified?: boolean;
+    onFocus?: FocusEventHandler<HTMLInputElement>;
+    onBlur?: FocusEventHandler<HTMLInputElement>;
 }
 declare function Input(props: Props): JSX.Element;
 export default Input;
