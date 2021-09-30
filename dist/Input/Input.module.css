@@ -1,6 +1,6 @@
 input {
   cursor: text;
-  background: var(--white);
+  background: var(--color-white);
   outline: none;
   border-radius: 0;
   font-size: 16px;
@@ -29,14 +29,14 @@ input {
   display: flex;
   align-items: center;
   flex-direction: row;
-  border-bottom: 1px solid var(--border-color-input);
+  border-bottom: 1px solid var(--color-black-40);
 }
 .wrapperFocus {
-  border-bottom: 2px solid var(--border-color-input-focus);
+  border-bottom: 2px solid var(--color-black-90);
 }
 
 .required {
-  color: var(--priamry-color);
+  color: var(--color-red-dark);
   padding-left: 5px;
 }
 
@@ -63,7 +63,7 @@ input {
   width: 10px;
   height: 10px;
   background: 0 0;
-  border: 1px solid var(--border-color-input);
+  border: 1px solid var(--color-black-40s);
   border-radius: 50%;
   -webkit-clip-path: inset(0 0 50% 0);
   clip-path: inset(0 0 50% 0);
@@ -73,21 +73,21 @@ input {
 }
 
 .error .wrapper {
-  border-bottom-color: var(--priamry-color);
+  border-bottom-color: var(--color-red-dark);
 }
 
 .error input {
-  color: var(--priamry-color);
+  color: var(--color-red-dark);
 }
 
 .errorLabel {
-  color: var(--priamry-color);
+  color: var(--color-red-dark);
   font-size: 12px;
   padding-top: 5px;
 }
 
 .success .wrapper {
-  border-bottom: 2px solid var(--secondary-color);
+  border-bottom: 2px solid var(--color-green);
 }
 
 .verifiedIcon {
