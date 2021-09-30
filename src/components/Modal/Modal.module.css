@@ -30,7 +30,7 @@
 }
 
 .fullscreen {
-  background-color: var(--solid-grey);
+  background-color: var(--color-white-bluish);
   margin: 0 auto;
   max-width: 480px;
 }
