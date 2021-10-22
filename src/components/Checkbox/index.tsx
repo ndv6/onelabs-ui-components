@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { createClassName } from '../helpers';
 import styles from './Checkbox.module.css';
 
 const CheckedIcon = () => (
@@ -140,11 +141,22 @@ interface Props {
   onChange?: (args: boolean) => void;
   size?: 'default' | 'small';
   checkType?: 'round';
+  right?: boolean;
+  className?: string;
 }
 
+const classNames = createClassName(styles);
+
 function Checkbox(props: Props) {
-  const { children, disabled, size, checked, onChange, checkType } = props;
+  const { children, disabled, size, checked, onChange, checkType, right, className } = props;
   const [htmlChecked, setHtmlChecked] = React.useState(false);
+  const classnames = classNames({
+    [`${className}`]: !!className,
+    [`${styles.checkbox}`]: true,
+    [`${styles.disabled}`]: disabled,
+    [`${styles.small}`]: size === 'small',
+  });
+
   function onChangeInput() {
     if (onChange) {
       onChange(!checked);
@@ -173,22 +185,23 @@ function Checkbox(props: Props) {
   }
 
   return (
-    <div
-      className={[
-        styles.checkbox,
-        disabled ? styles.disabled : '',
-        size === 'small' ? styles.small : '',
-      ].join(' ')}
-    >
+    <div className={classnames}>
+      {right && (
+        <label className={styles.labelRight} htmlFor="checkbox">
+          {children}
+        </label>
+      )}
+
       <input
         className={styles.input}
+        id="checkbox"
         checked={htmlChecked}
         onChange={onChangeInput}
         type="checkbox"
       />
       <div>{htmlChecked ? iconChecked : iconUnChecked}</div>
 
-      <span className={styles.label}>{children}</span>
+      {!right && <span className={styles.label}>{children}</span>}
     </div>
   );
 }
