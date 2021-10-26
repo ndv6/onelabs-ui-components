@@ -1,6 +1,7 @@
 import Flex from '../Flex';
 import React, { ReactNode, useState, MouseEventHandler } from 'react';
 import styles from './CardExpand.module.css';
+import { createClassName } from '../helpers';
 
 const SvgChevronUp = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -32,27 +33,25 @@ interface CardExpandProps {
   };
 }
 
+const classNames = createClassName(styles);
+
 function CardExpand({
   active,
-  closeIcon,
+  closeIcon = true,
   onClose,
   expand,
   variant = 'default',
   children,
 }: CardExpandProps) {
   const [isExpand, setIsExpand] = useState(expand || expand === undefined ? false : true);
+  const classnames = classNames({
+    [styles.mainCard]: true,
+    active: active,
+    [`${variant}`]: variant,
+  });
 
   return (
-    <div
-      data-testid="wrapper-cardExpand"
-      className={
-        active
-          ? variant === 'success'
-            ? styles.mainCardActiveSuccess
-            : styles.mainCardActive
-          : styles.mainCard
-      }
-    >
+    <div data-testid="wrapper-cardExpand" className={classnames}>
       <div data-testid="card" className={isExpand ? styles.cardExpanded : styles.card}>
         <div>
           {!closeIcon && closeIcon !== undefined ? (
