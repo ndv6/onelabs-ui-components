@@ -21,9 +21,10 @@ const SvgChevronUp = () => (
 
 interface CardExpandProps {
   active?: boolean;
-  closeIcon?: boolean;
+  closeIcon?: boolean | ReactNode;
   onClose?: MouseEventHandler;
   expand?: boolean;
+  variant?: 'default' | 'success';
   children: {
     title?: ReactNode;
     content?: ReactNode;
@@ -31,38 +32,51 @@ interface CardExpandProps {
   };
 }
 
-function CardExpand(props: CardExpandProps) {
-  const [expand, setExpand] = useState(props.expand || props.expand === undefined ? false : true);
+function CardExpand({
+  active,
+  closeIcon,
+  onClose,
+  expand,
+  variant = 'default',
+  children,
+}: CardExpandProps) {
+  const [isExpand, setIsExpand] = useState(expand || expand === undefined ? false : true);
 
   return (
     <div
       data-testid="wrapper-cardExpand"
-      className={props.active ? styles.mainCardActive : styles.mainCard}
+      className={
+        active
+          ? variant === 'success'
+            ? styles.mainCardActiveSuccess
+            : styles.mainCardActive
+          : styles.mainCard
+      }
     >
-      <div data-testid="card" className={expand ? styles.cardExpanded : styles.card}>
+      <div data-testid="card" className={isExpand ? styles.cardExpanded : styles.card}>
         <div>
-          {!props.closeIcon && props.closeIcon !== undefined ? (
-            <div className="textCollapse">{props.children.title}</div>
+          {!closeIcon && closeIcon !== undefined ? (
+            <div className="textCollapse">{children.title}</div>
           ) : (
             <Flex justifyContent="space-between" alignItems="flex-start">
-              <div className="textCollapse">{props.children.title}</div>
+              <div className="textCollapse">{children.title}</div>
               <div
-                className={styles.chevron}
-                onClick={
-                  props.expand || props.expand === undefined
-                    ? () => setExpand(!expand)
-                    : props.onClose
-                }
+                className={typeof closeIcon !== 'boolean' ? styles.closeIcon : styles.chevron}
+                onClick={expand || expand === undefined ? () => setIsExpand(!isExpand) : onClose}
               >
-                <SvgChevronUp />
+                {typeof closeIcon === 'boolean' || closeIcon === undefined ? (
+                  <SvgChevronUp />
+                ) : (
+                  closeIcon
+                )}
               </div>
             </Flex>
           )}
         </div>
-        <div className={styles.textContent}>{props.children.content}</div>
+        <div className={styles.textContent}>{children.content}</div>
       </div>
       <div className={styles.action} style={{ marginTop: 24 }}>
-        {props.children.action}
+        {children.action}
       </div>
     </div>
   );

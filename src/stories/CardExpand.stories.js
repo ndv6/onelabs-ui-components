@@ -1,5 +1,4 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 import CardExpand from '../components/CardExpand';
 import Button from '../components/Button';
 import Text from '../components/Text';
