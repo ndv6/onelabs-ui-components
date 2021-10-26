@@ -13,7 +13,7 @@
 .mainCardActive {
   max-height: 85vh;
   opacity: 1;
-  transition: max-height 0.75s ease;
+  transition: max-height 0.75s ease, opacity 0.75s ease;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -28,7 +28,7 @@
 .mainCardActiveSuccess {
   max-height: 85vh;
   opacity: 1;
-  transition: max-height 0.75s ease;
+  transition: max-height 0.75s ease, opacity 0.75s ease;
   position: fixed;
   bottom: 0;
   width: 100%;
