@@ -14,6 +14,10 @@
   padding: 20px;
 }
 
+.withoutRadius {
+  border-radius: 0;
+}
+
 .disabled {
   pointer-events: none;
 }

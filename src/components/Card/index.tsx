@@ -24,6 +24,7 @@ interface Props {
   type?: 'checkbox' | 'default' | 'check';
   radio?: boolean;
   className?: string;
+  withoutRadius?: boolean;
 }
 
 function Card(props: Props) {
@@ -33,6 +34,7 @@ function Card(props: Props) {
   if (props.selected || props.checked) className.push(styles.selected);
   if (props.disabled) className.push(styles.disabled);
   if (props.className) className.push(props.className);
+  if (props.withoutRadius) className.push(styles.withoutRadius);
 
   if (props.type && props.type === 'checkbox') {
     children = (

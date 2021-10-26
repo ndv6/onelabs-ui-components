@@ -26,6 +26,8 @@ function Card(props) {
         className.push(styles.disabled);
     if (props.className)
         className.push(props.className);
+    if (props.withoutRadius)
+        className.push(styles.withoutRadius);
     if (props.type && props.type === 'checkbox') {
         children = (React.createElement(Checkbox
         // radio={props.radio}

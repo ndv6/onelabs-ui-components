@@ -11,6 +11,7 @@ interface Props {
     type?: 'checkbox' | 'default' | 'check';
     radio?: boolean;
     className?: string;
+    withoutRadius?: boolean;
 }
 declare function Card(props: Props): JSX.Element;
 declare namespace Card {
