@@ -72,11 +72,13 @@ function CardExpand({
             </Flex>
           )}
         </div>
-        <div className={styles.textContent}>{children.content}</div>
+        {children.content && <div className={styles.textContent}>{children.content}</div>}
       </div>
-      <div className={styles.action} style={{ marginTop: 24 }}>
-        {children.action}
-      </div>
+      {children.action && (
+        <div className={styles.action} style={{ marginTop: 24 }}>
+          {children.action}
+        </div>
+      )}
     </div>
   );
 }

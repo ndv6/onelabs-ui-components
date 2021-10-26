@@ -23,8 +23,8 @@ function CardExpand(_a) {
             React.createElement("div", null, !closeIcon && closeIcon !== undefined ? (React.createElement("div", { className: "textCollapse" }, children.title)) : (React.createElement(Flex, { justifyContent: "space-between", alignItems: "flex-start" },
                 React.createElement("div", { className: "textCollapse" }, children.title),
                 React.createElement("div", { className: typeof closeIcon !== 'boolean' ? styles.closeIcon : styles.chevron, onClick: expand || expand === undefined ? function () { return setIsExpand(!isExpand); } : onClose }, typeof closeIcon === 'boolean' || closeIcon === undefined ? (React.createElement(SvgChevronUp, null)) : (closeIcon))))),
-            React.createElement("div", { className: styles.textContent }, children.content)),
-        React.createElement("div", { className: styles.action, style: { marginTop: 24 } }, children.action)));
+            children.content && React.createElement("div", { className: styles.textContent }, children.content)),
+        children.action && (React.createElement("div", { className: styles.action, style: { marginTop: 24 } }, children.action))));
 }
 export default CardExpand;
 //# sourceMappingURL=index.js.map
