@@ -1,4 +1,5 @@
 import React from 'react';
+import { createClassName } from '../helpers';
 import styles from './Checkbox.module.css';
 var CheckedIcon = function () { return (React.createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
     React.createElement("rect", { width: "24", height: "24", rx: "4", fill: "url(#paint0_linear)" }),
@@ -38,9 +39,17 @@ var RoundUnCheckedIcon = function () { return (React.createElement("svg", { widt
     React.createElement("g", { fill: "none", fillRule: "evenodd" },
         React.createElement("path", { fill: "#C7C7C7", d: "M12 1c6.077 0 11 4.923 11 11s-4.923 11-11 11S1 18.077 1 12 5.923 1 12 1zm0 1C6.476 2 2 6.476 2 12s4.476 10 10 10 10-4.476 10-10S17.524 2 12 2z" }),
         React.createElement("path", { fill: "#ECECEC", d: "M12 2C6.476 2 2 6.476 2 12s4.476 10 10 10 10-4.476 10-10S17.524 2 12 2z" })))); };
+var classNames = createClassName(styles);
 function Checkbox(props) {
-    var children = props.children, disabled = props.disabled, size = props.size, checked = props.checked, onChange = props.onChange, checkType = props.checkType;
-    var _a = React.useState(false), htmlChecked = _a[0], setHtmlChecked = _a[1];
+    var _a;
+    var children = props.children, disabled = props.disabled, size = props.size, checked = props.checked, onChange = props.onChange, checkType = props.checkType, right = props.right, className = props.className;
+    var _b = React.useState(false), htmlChecked = _b[0], setHtmlChecked = _b[1];
+    var classnames = classNames((_a = {},
+        _a["" + className] = !!className,
+        _a["" + styles.checkbox] = true,
+        _a["" + styles.disabled] = disabled,
+        _a["" + styles.small] = size === 'small',
+        _a));
     function onChangeInput() {
         if (onChange) {
             onChange(!checked);
@@ -63,14 +72,11 @@ function Checkbox(props) {
             iconChecked = React.createElement(RoundDisabledCheckedIcon, null);
         }
     }
-    return (React.createElement("div", { className: [
-            styles.checkbox,
-            disabled ? styles.disabled : '',
-            size === 'small' ? styles.small : '',
-        ].join(' ') },
-        React.createElement("input", { className: styles.input, checked: htmlChecked, onChange: onChangeInput, type: "checkbox" }),
+    return (React.createElement("div", { className: classnames },
+        right && (React.createElement("label", { className: styles.labelRight, htmlFor: "checkbox" }, children)),
+        React.createElement("input", { className: styles.input, id: "checkbox", checked: htmlChecked, onChange: onChangeInput, type: "checkbox" }),
         React.createElement("div", null, htmlChecked ? iconChecked : iconUnChecked),
-        React.createElement("span", { className: styles.label }, children)));
+        !right && React.createElement("span", { className: styles.label }, children)));
 }
 export default Checkbox;
 //# sourceMappingURL=index.js.map

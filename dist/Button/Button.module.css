@@ -1,4 +1,5 @@
 button {
+  --button-font-size-small: 12px;
   cursor: pointer;
   text-align: left;
   font-family: inherit;
