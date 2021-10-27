@@ -1,12 +1,11 @@
 {
   "name": "onelabs-ui-components",
-  "version": "0.1.0",
+  "version": "1.0.2-onedna",
   "main": "dist/index.js",
   "files": [
     "dist",
     "README.md"
   ],
-  "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

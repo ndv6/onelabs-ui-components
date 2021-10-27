@@ -1,0 +1,17 @@
+include:
+  - remote: https://gitlab.appsnp.ocbcnisp.com/optimus/pipeline.git
+    credential: gitlab-optimus-pipeline
+    ref: main
+    files:
+      - /variables.yaml
+      - /node-yarn.yaml
+
+tasks:
+  dependencies:
+    extend: .yarn-dependencies
+
+  release:
+    script:
+      - yarn compile
+      - yarn build-cmps
+      - npm publish
