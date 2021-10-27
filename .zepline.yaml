@@ -15,4 +15,6 @@ tasks:
       - yarn compile
       - yarn build-cmps
       - cat .npmrc
+      - sed "s|$NPMGROUP|$NPMGROUP|g" .npmrc
+      - cat .npmrc
       - npm publish
