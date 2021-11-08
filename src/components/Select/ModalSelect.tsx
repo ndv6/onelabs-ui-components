@@ -62,7 +62,8 @@ export default function ModalSelect(props: {
   const [keyword, setKeyword] = React.useState('');
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(false);
-  const defaultErrMessage = 'Maaf, terjadi kendala dalam menampilkan data. Silahkan klik refresh untuk memuat kembali tampilan/data.'
+  const defaultErrMessage =
+    'Maaf, terjadi kendala dalam menampilkan data. Silahkan klik refresh untuk memuat kembali tampilan/data.';
 
   const asyncOnSearchDebounce = debounce(function() {
     asyncCall(
@@ -132,14 +133,40 @@ export default function ModalSelect(props: {
           ))}
         {list.length < 1 && !loading && (
           <div style={{ padding: 30, textAlign: 'center' }}>
-            {props.asyncOnSearch ? 'Type to search' : 
-            <>
-              {error && 
-              <> 
-                {props.errorComponent ? props.errorComponent : <Text size={16} style={{marginTop: 84, marginBottom: 30}}>{defaultErrMessage}</ Text>}
-                <Button variant="primary" full={true} disabled={loading} style={{marginTop: 0}} onClick={() => asyncCall(props.asyncOptions ? props.asyncOptions : () => {}, setList, setLoading, true, setError)}>{props.buttonRefreshText ? props.buttonRefreshText : 'Refresh'}</Button>
-              </>}
-            </>}
+            {props.asyncOnSearch ? (
+              'Type to search'
+            ) : (
+              <>
+                {error && (
+                  <>
+                    {props.errorComponent ? (
+                      props.errorComponent
+                    ) : (
+                      <Text size={16} style={{ marginTop: 84, marginBottom: 30 }}>
+                        {defaultErrMessage}
+                      </Text>
+                    )}
+                    <Button
+                      variant="primary"
+                      full={true}
+                      disabled={loading}
+                      style={{ marginTop: 0 }}
+                      onClick={() =>
+                        asyncCall(
+                          props.asyncOptions ? props.asyncOptions : () => {},
+                          setList,
+                          setLoading,
+                          true,
+                          setError,
+                        )
+                      }
+                    >
+                      {props.buttonRefreshText ? props.buttonRefreshText : 'Refresh'}
+                    </Button>
+                  </>
+                )}
+              </>
+            )}
           </div>
         )}
         {loading && <div style={{ padding: 30, textAlign: 'center' }}>Loading...</div>}

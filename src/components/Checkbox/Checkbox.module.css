@@ -4,6 +4,10 @@
   flex-direction: row;
 }
 
+.check {
+  display: flex;
+}
+
 .input {
   position: absolute;
   left: 0;
