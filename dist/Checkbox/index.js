@@ -75,7 +75,7 @@ function Checkbox(props) {
     return (React.createElement("div", { className: classnames },
         right && (React.createElement("label", { className: styles.labelRight, htmlFor: "checkbox" }, children)),
         React.createElement("input", { className: styles.input, id: "checkbox", checked: htmlChecked, onChange: onChangeInput, type: "checkbox" }),
-        React.createElement("div", { className: styles.check }, htmlChecked ? iconChecked : iconUnChecked),
+        React.createElement("div", null, htmlChecked ? iconChecked : iconUnChecked),
         !right && React.createElement("span", { className: styles.label }, children)));
 }
 export default Checkbox;

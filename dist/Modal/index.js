@@ -41,11 +41,12 @@ function Modal(props) {
                     React.createElement("div", null, props.children)))), el);
     }
     return ReactDOM.createPortal(React.createElement("div", { className: classnames },
-        React.createElement("div", { className: styles.header },
-            React.createElement("div", { className: styles.label }, props.title),
-            React.createElement(Button, { style: { marginLeft: 'auto' }, onClick: props.onClose },
-                React.createElement(ArrowSvg, null))),
-        React.createElement("div", { className: styles.content }, props.children)), el);
+        React.createElement("div", { className: styles.wrapper },
+            React.createElement("div", { className: styles.header },
+                React.createElement("div", { className: styles.label }, props.title),
+                React.createElement(Button, { style: { marginLeft: 'auto' }, onClick: props.onClose },
+                    React.createElement(ArrowSvg, null))),
+            React.createElement("div", { className: styles.content }, props.children))), el);
 }
 export default Modal;
 //# sourceMappingURL=index.js.map

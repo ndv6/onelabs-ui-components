@@ -7,6 +7,7 @@
   z-index: 99;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .default {
@@ -31,15 +32,14 @@
 
 .fullscreen {
   background-color: var(--color-white-bluish);
-  margin: 0 auto;
-  max-width: 480px;
 }
 
-.fullscreen .content {
-  flex-grow: unset;
+.wrapper {
   max-width: 480px;
-  min-width: 150px;
-  position: relative;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  position: fixed;
 }
 
 .header {
