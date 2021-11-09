@@ -199,7 +199,7 @@ function Checkbox(props: Props) {
         onChange={onChangeInput}
         type="checkbox"
       />
-      <div className={styles.check}>{htmlChecked ? iconChecked : iconUnChecked}</div>
+      <div>{htmlChecked ? iconChecked : iconUnChecked}</div>
 
       {!right && <span className={styles.label}>{children}</span>}
     </div>

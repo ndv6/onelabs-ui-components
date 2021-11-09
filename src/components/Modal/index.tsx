@@ -72,13 +72,15 @@ function Modal(props: Props) {
   }
   return ReactDOM.createPortal(
     <div className={classnames}>
-      <div className={styles.header}>
-        <div className={styles.label}>{props.title}</div>
-        <Button style={{ marginLeft: 'auto' }} onClick={props.onClose}>
-          <ArrowSvg />
-        </Button>
+      <div className={styles.wrapper}>
+        <div className={styles.header}>
+          <div className={styles.label}>{props.title}</div>
+          <Button style={{ marginLeft: 'auto' }} onClick={props.onClose}>
+            <ArrowSvg />
+          </Button>
+        </div>
+        <div className={styles.content}>{props.children}</div>
       </div>
-      <div className={styles.content}>{props.children}</div>
     </div>,
     el,
   );

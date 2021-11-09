@@ -2,10 +2,7 @@
   display: inline-flex;
   position: relative;
   flex-direction: row;
-}
-
-.check {
-  display: flex;
+  align-items: center;
 }
 
 .input {
