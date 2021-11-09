@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.check {
+  display: flex;
+}
+
 .input {
   position: absolute;
   left: 0;
