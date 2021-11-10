@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button, { Anchor } from './Button';
 import Card from './Card';
 import Checkbox from './Checkbox';
 import RadioButton from './Radio';
@@ -14,6 +14,7 @@ import InputSlider from './InputSlider';
 import CardExpand from './CardExpand';
 
 export {
+  Anchor,
   Button,
   Card,
   Checkbox,

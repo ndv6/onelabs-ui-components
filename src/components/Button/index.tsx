@@ -1,25 +1,32 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { createClassName } from '../helpers';
 import styles from './Button.module.css';
 
 const classNames = createClassName(styles);
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'transparent';
   size?: 'small';
   rounded?: boolean;
   children?: React.ReactNode;
   className?: string;
   full?: boolean;
-  href?: string;
   loading?: boolean;
-  anchor?: boolean;
 }
 
-function Button(props: Props) {
-  const { children, variant, full, rounded, className, href, loading, size, anchor, ...rest } = props;
-  const history = useHistory();
+interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  variant?: 'primary' | 'secondary' | 'ghost' | 'transparent';
+  size?: 'small';
+  rounded?: boolean;
+  children?: React.ReactNode;
+  className?: string;
+  full?: boolean;
+  loading?: boolean;
+  disabled?: boolean;
+}
+
+function Button(props: ButtonProps) {
+  const { children, variant, full, rounded, className, loading, size, ...rest } = props;
   const classnames = classNames({
     [`${className}`]: !!className,
     [`${variant}`]: variant,
@@ -31,18 +38,33 @@ function Button(props: Props) {
 
   function onClick(e: any) {
     if (rest.onClick) rest.onClick(e);
-    if (href) history.push(href);
     return;
   }
 
   return (
     <button type={rest.type || 'button'} onClick={onClick} className={`${classnames}`} {...rest}>
-      {
-        anchor ? (
-          <a href={href} className={styles.anchorStyle}>{children}</a>
-        ) : children
-      }
+      {children}
     </button>
+  );
+}
+
+export function Anchor(props: AnchorProps) {
+  const { children, variant, full, rounded, className, loading, disabled, size, ...rest } = props;
+  const classnames = classNames({
+    [`${className}`]: !!className,
+    [`${styles.anchorStyle}`]: true,
+    [`${variant}`]: variant,
+    [`${size}`]: size,
+    fullWidth: full,
+    loading: loading,
+    rounded: rounded,
+    disabled: disabled,
+  });
+
+  return (
+    <a className={`${classnames}`} {...rest}>
+      {children}
+    </a>
   );
 }
 
