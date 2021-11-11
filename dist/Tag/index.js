@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useHistory } from 'react-router-dom';
 import { createClassName } from '../helpers';
 import styles from './Tag.module.css';
 var classNames = createClassName(styles);

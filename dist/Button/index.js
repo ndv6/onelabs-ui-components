@@ -21,14 +21,12 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { createClassName } from '../helpers';
 import styles from './Button.module.css';
 var classNames = createClassName(styles);
 function Button(props) {
     var _a;
-    var children = props.children, variant = props.variant, full = props.full, rounded = props.rounded, className = props.className, href = props.href, loading = props.loading, size = props.size, anchor = props.anchor, rest = __rest(props, ["children", "variant", "full", "rounded", "className", "href", "loading", "size", "anchor"]);
-    var history = useHistory();
+    var children = props.children, variant = props.variant, full = props.full, rounded = props.rounded, className = props.className, loading = props.loading, size = props.size, rest = __rest(props, ["children", "variant", "full", "rounded", "className", "loading", "size"]);
     var classnames = classNames((_a = {},
         _a["" + className] = !!className,
         _a["" + variant] = variant,
@@ -40,11 +38,24 @@ function Button(props) {
     function onClick(e) {
         if (rest.onClick)
             rest.onClick(e);
-        if (href)
-            history.push(href);
         return;
     }
-    return (React.createElement("button", __assign({ type: rest.type || 'button', onClick: onClick, className: "" + classnames }, rest), anchor ? (React.createElement("a", { href: href, className: styles.anchorStyle }, children)) : children));
+    return (React.createElement("button", __assign({ type: rest.type || 'button', onClick: onClick, className: "" + classnames }, rest), children));
+}
+export function Anchor(props) {
+    var _a;
+    var children = props.children, variant = props.variant, full = props.full, rounded = props.rounded, className = props.className, loading = props.loading, disabled = props.disabled, size = props.size, rest = __rest(props, ["children", "variant", "full", "rounded", "className", "loading", "disabled", "size"]);
+    var classnames = classNames((_a = {},
+        _a["" + className] = !!className,
+        _a["" + styles.anchorStyle] = true,
+        _a["" + variant] = variant,
+        _a["" + size] = size,
+        _a.fullWidth = full,
+        _a.loading = loading,
+        _a.rounded = rounded,
+        _a.disabled = disabled,
+        _a));
+    return (React.createElement("a", __assign({ className: "" + classnames }, rest), children));
 }
 export default Button;
 //# sourceMappingURL=index.js.map

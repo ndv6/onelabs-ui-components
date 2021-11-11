@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../components/Button';
+import Button, { Anchor } from '../components/Button';
 
 export const Default = () => <Button className={'lmao'}>Default</Button>;
 export const Rounded = () => (
@@ -8,13 +8,21 @@ export const Rounded = () => (
   </Button>
 );
 export const Primary = () => <Button variant="primary">Primary</Button>;
-export const PrimaryWithLongString = () => <div style={{width: 320, padding: '50px'}}><Button variant="primary">Saya Sudah Membaca & Menyetujui</Button></div>;
+export const PrimaryWithLongString = () => (
+  <div style={{ width: 320, padding: '50px' }}>
+    <Button variant="primary">Saya Sudah Membaca & Menyetujui</Button>
+  </div>
+);
 export const Transparent = () => (
   <div style={{ background: '#000', padding: 20 }}>
     <Button variant="transparent">Transparent</Button>
   </div>
 );
-export const Secondary = () => <div style={{background: 'rgba(0, 0, 0, 0.05)'}}><Button variant="secondary">Secondary</Button></div>;
+export const Secondary = () => (
+  <div style={{ background: 'rgba(0, 0, 0, 0.05)' }}>
+    <Button variant="secondary">Secondary</Button>
+  </div>
+);
 export const Ghost = () => <Button variant="ghost">Ghost</Button>;
 export const Disabled = () => (
   <div className="example-row">
@@ -27,7 +35,6 @@ export const Disabled = () => (
     <Button variant="ghost" disabled>
       ghost Disabled
     </Button>
-    1
   </div>
 );
 export const Size = () => (
@@ -54,11 +61,7 @@ export const Loading = () => (
   </Button>
 );
 
-export const ButtonAnchor = () => (
-  <Button variant="primary" anchor href="/lmao">
-    Anchor
-  </Button>
-);
+export const ButtonAnchor = () => <Anchor href="/lmao">Anchor</Anchor>;
 
 export default {
   title: 'Elements | Button',
