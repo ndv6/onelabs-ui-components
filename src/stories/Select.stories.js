@@ -18,9 +18,45 @@ const MOCK_DATA = [
   },
 ];
 
+const MOCK_DATA_OBJECT = {
+  'Group 1': [
+    {
+      label: 'data 1',
+      value: '1',
+    },
+    {
+      label: 'data 2',
+      value: '2',
+    },
+    {
+      label: 'data 3',
+      value: '3',
+    },
+  ],
+  'Group 2': [
+    {
+      label: 'data 1',
+      value: '1',
+    },
+    {
+      label: 'data 2',
+      value: '2',
+    },
+    {
+      label: 'data 3',
+      value: '3',
+    },
+  ],
+};
+
 export const Default = () => (
   <Select options={MOCK_DATA} placeholder="Tap to select" label="Pilih Data" />
 );
+
+export const WithGroup = () => (
+  <Select groupOptions={MOCK_DATA_OBJECT} placeholder="Tap to select" label="Pilih Data" />
+);
+
 export const Native = () => (
   <Select options={MOCK_DATA} native placeholder="Tap to select" label="Pilih Data" />
 );
@@ -122,20 +158,20 @@ export const ModalSelection = () => {
   const [list, setList] = React.useState([]);
   return (
     <>
-    <ModalSelect
-       label={'title'}
-          options={[]}
-          asyncOnSearch={keyword =>
-            fetch(
-              'https://raw.githubusercontent.com/substack/provinces/master/provinces.json?id=' +
-                keyword,
-            ).then(async res => {
-              const json = await res.json();
-              return json.map(d => ({ label: d.name, value: d.name }));
-            })
-          }
-          onSelect={() => {}}
-          />
+      <ModalSelect
+        label={'title'}
+        options={[]}
+        asyncOnSearch={keyword =>
+          fetch(
+            'https://raw.githubusercontent.com/substack/provinces/master/provinces.json?id=' +
+              keyword,
+          ).then(async res => {
+            const json = await res.json();
+            return json.map(d => ({ label: d.name, value: d.name }));
+          })
+        }
+        onSelect={() => {}}
+      />
     </>
   );
 };

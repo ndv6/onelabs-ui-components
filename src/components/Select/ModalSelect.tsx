@@ -51,7 +51,8 @@ export default function ModalSelect(props: {
   asyncOptions?: () => Promise<any[]>;
   asyncOnSearch?: (keyword: string) => Promise<Option[]>;
   onFilter?: (keyword: string, args: Option[]) => Option[];
-  options: any;
+  options?: Option[];
+  groupOptions?: { [group: string]: Option[] };
   label: string | ReactNode;
   placeholderSearch?: string;
   errorComponent?: ReactNode;
@@ -59,6 +60,7 @@ export default function ModalSelect(props: {
 }) {
   const inputRef: any = React.useRef(null);
   const [list, setList] = React.useState(props.options || []);
+  const [listGroup, setListGroup] = React.useState(props.groupOptions || {});
   const [keyword, setKeyword] = React.useState('');
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(false);
@@ -87,6 +89,11 @@ export default function ModalSelect(props: {
     }
     if (props.onFilter) {
       setList(props.onFilter(e.target.value, list));
+      let newList: { [group: string]: Option[] } = {};
+      for (const [key, value] of Object.entries(listGroup)) {
+        newList[key] = props.onFilter(e.target.value, value);
+      }
+      setListGroup(newList);
       return;
     }
     setKeyword(e.target.value);
@@ -119,6 +126,24 @@ export default function ModalSelect(props: {
         style={{ margin: 'auto' }}
       />
       <div style={{ overflow: 'auto', height: 'calc(100vh - 130px)' }}>
+        {Object.entries(listGroup).map(d => (
+          <>
+            <div style={{ fontWeight: 700, fontSize: 16, paddingTop: 20 }}>{d[0]}</div>
+            {d[1]
+              .filter((d: any) =>
+                (d.label || d.name)
+                  .toString()
+                  .toLowerCase()
+                  .includes(keyword.toLowerCase()),
+              )
+              .map((o, i) => (
+                <Button key={i} onClick={() => props.onSelect(o)} className={styles.option} full>
+                  {o.label || o.name || o.title}
+                </Button>
+              ))}
+          </>
+        ))}
+
         {list
           .filter((d: any) =>
             (d.label || d.name)

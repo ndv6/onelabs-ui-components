@@ -12,7 +12,10 @@ export default function ModalSelect(props: {
     asyncOptions?: () => Promise<any[]>;
     asyncOnSearch?: (keyword: string) => Promise<Option[]>;
     onFilter?: (keyword: string, args: Option[]) => Option[];
-    options: any;
+    options?: Option[];
+    groupOptions?: {
+        [group: string]: Option[];
+    };
     label: string | ReactNode;
     placeholderSearch?: string;
     errorComponent?: ReactNode;

@@ -40,6 +40,7 @@ interface Props
   native?: boolean;
   disabled?: boolean;
   options?: Option[];
+  groupOptions?: { [group: string]: Option[] };
   asyncOptions?: () => Promise<Option[]>;
   asyncOnSearch?: (keyword: string) => Promise<Option[]>;
   onFilter?: (keyword: string, args: Option[]) => Option[];
@@ -69,6 +70,7 @@ function Select(props: Props) {
     onChange,
     value,
     options,
+    groupOptions,
     asyncOptions,
     asyncOnSearch,
     onFilter,
@@ -143,6 +145,7 @@ function Select(props: Props) {
             onSelect={onSelect}
             label={label}
             options={options || []}
+            groupOptions={groupOptions || {}}
             asyncOptions={asyncOptions}
             asyncOnSearch={asyncOnSearch}
             placeholderSearch={placeholderSearch}

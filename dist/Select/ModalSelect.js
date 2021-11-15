@@ -77,9 +77,10 @@ function asyncCall(asyncOptions, setList, setLoading, subscribe, setError) {
 export default function ModalSelect(props) {
     var inputRef = React.useRef(null);
     var _a = React.useState(props.options || []), list = _a[0], setList = _a[1];
-    var _b = React.useState(''), keyword = _b[0], setKeyword = _b[1];
-    var _c = React.useState(false), loading = _c[0], setLoading = _c[1];
-    var _d = React.useState(false), error = _d[0], setError = _d[1];
+    var _b = React.useState(props.groupOptions || {}), listGroup = _b[0], setListGroup = _b[1];
+    var _c = React.useState(''), keyword = _c[0], setKeyword = _c[1];
+    var _d = React.useState(false), loading = _d[0], setLoading = _d[1];
+    var _e = React.useState(false), error = _e[0], setError = _e[1];
     var defaultErrMessage = 'Maaf, terjadi kendala dalam menampilkan data. Silahkan klik refresh untuk memuat kembali tampilan/data.';
     var asyncOnSearchDebounce = debounce(function () {
         asyncCall(function () {
@@ -91,13 +92,20 @@ export default function ModalSelect(props) {
     }, 500);
     function onChange(e) {
         return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
+            var newList, _i, _a, _b, key, value;
+            return __generator(this, function (_c) {
                 if (props.asyncOnSearch) {
                     asyncOnSearchDebounce();
                     return [2 /*return*/];
                 }
                 if (props.onFilter) {
                     setList(props.onFilter(e.target.value, list));
+                    newList = {};
+                    for (_i = 0, _a = Object.entries(listGroup); _i < _a.length; _i++) {
+                        _b = _a[_i], key = _b[0], value = _b[1];
+                        newList[key] = props.onFilter(e.target.value, value);
+                    }
+                    setListGroup(newList);
                     return [2 /*return*/];
                 }
                 setKeyword(e.target.value);
@@ -119,6 +127,16 @@ export default function ModalSelect(props) {
         React.createElement(Input, { innerRef: inputRef, icon: React.createElement("span", { style: { marginLeft: 15 } },
                 React.createElement(SearchSvg, null)), className: styles.selectSearchInput, id: "ui-search-input", placeholder: props.placeholderSearch ? props.placeholderSearch : 'Tap to search', onChange: onChange, style: { margin: 'auto' } }),
         React.createElement("div", { style: { overflow: 'auto', height: 'calc(100vh - 130px)' } },
+            Object.entries(listGroup).map(function (d) { return (React.createElement(React.Fragment, null,
+                React.createElement("div", { style: { fontWeight: 700, fontSize: 16, paddingTop: 20 } }, d[0]),
+                d[1]
+                    .filter(function (d) {
+                    return (d.label || d.name)
+                        .toString()
+                        .toLowerCase()
+                        .includes(keyword.toLowerCase());
+                })
+                    .map(function (o, i) { return (React.createElement(Button, { key: i, onClick: function () { return props.onSelect(o); }, className: styles.option, full: true }, o.label || o.name || o.title)); }))); }),
             list
                 .filter(function (d) {
                 return (d.label || d.name)

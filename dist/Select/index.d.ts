@@ -18,6 +18,9 @@ interface Props extends Modify<React.SelectHTMLAttributes<HTMLSelectElement>, {
     native?: boolean;
     disabled?: boolean;
     options?: Option[];
+    groupOptions?: {
+        [group: string]: Option[];
+    };
     asyncOptions?: () => Promise<Option[]>;
     asyncOnSearch?: (keyword: string) => Promise<Option[]>;
     onFilter?: (keyword: string, args: Option[]) => Option[];
