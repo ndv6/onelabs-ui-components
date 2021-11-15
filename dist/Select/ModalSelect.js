@@ -136,7 +136,7 @@ export default function ModalSelect(props) {
                         .toLowerCase()
                         .includes(keyword.toLowerCase());
                 })
-                    .map(function (o, i) { return (React.createElement(Button, { key: i, onClick: function () { return props.onSelect(o); }, className: styles.option, full: true }, o.label || o.name || o.title)); }))); }),
+                    .map(function (d, i) { return (React.createElement(Button, { key: i, onClick: function () { return props.onSelect(d); }, className: styles.option, full: true }, d.label || d.name || d.title)); }))); }),
             list
                 .filter(function (d) {
                 return (d.label || d.name)
