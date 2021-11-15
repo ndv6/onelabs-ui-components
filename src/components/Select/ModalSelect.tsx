@@ -126,7 +126,7 @@ export default function ModalSelect(props: {
         style={{ margin: 'auto' }}
       />
       <div style={{ overflow: 'auto', height: 'calc(100vh - 130px)' }}>
-        {Object.entries(listGroup).map(d => (
+        {Object.entries(listGroup).map((d: any) => (
           <>
             <div style={{ fontWeight: 700, fontSize: 16, paddingTop: 20 }}>{d[0]}</div>
             {d[1]
@@ -136,9 +136,9 @@ export default function ModalSelect(props: {
                   .toLowerCase()
                   .includes(keyword.toLowerCase()),
               )
-              .map((o, i) => (
-                <Button key={i} onClick={() => props.onSelect(o)} className={styles.option} full>
-                  {o.label || o.name || o.title}
+              .map((d: any, i: number) => (
+                <Button key={i} onClick={() => props.onSelect(d)} className={styles.option} full>
+                  {d.label || d.name || d.title}
                 </Button>
               ))}
           </>
