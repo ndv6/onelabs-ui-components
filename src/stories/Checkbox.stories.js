@@ -13,7 +13,16 @@ export const Small = () => (
   </Checkbox>
 );
 
-export const Round = () => <Checkbox checkType="round">i agreed terms and condition</Checkbox>;
+export const Round = () => (
+  <Checkbox checkType="round">i agreed terms and condition condition</Checkbox>
+);
+
+export const RoundLongText = () => (
+  <Checkbox checkType="round">
+    i agreed terms and condition <br /> i agreed terms and condition <br />i agreed terms and
+    condition
+  </Checkbox>
+);
 
 export const Right = () => (
   <Checkbox checkType="round" right>
