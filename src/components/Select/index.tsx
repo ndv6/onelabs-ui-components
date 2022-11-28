@@ -107,6 +107,10 @@ function Select(props: Props) {
     if (onChange) onChange(newVal);
   }
 
+  window.onhashchange = function() {
+    if (showModal) setShowModal(false);
+  };
+
   return (
     <div className={classnames}>
       {label && (
@@ -126,13 +130,25 @@ function Select(props: Props) {
             {...rest}
           >
             {(options || []).map((d, index: number) => (
-              <option key={index} value={getValue(d)}>
+              <option
+                key={index}
+                value={getValue(d)}
+                style={{ borderRadius: '8px', opacity: 1, backgroundColor: 'red' }}
+              >
                 {getLabel(d)}
               </option>
             ))}
           </select>
         )}
-        {!native && <Button className={styles.nativeSelect} onClick={() => setShowModal(true)} />}
+        {!native && (
+          <Button
+            className={styles.nativeSelect}
+            onClick={() => {
+              window.history.pushState('', '', window.location + '#select');
+              setShowModal(true);
+            }}
+          />
+        )}
         {loading && <div className={styles.loading} />}
         <ArrowDown />
       </div>
