@@ -63,6 +63,10 @@ function Select(props) {
         if (onChange)
             onChange(newVal);
     }
+    window.onhashchange = function () {
+        if (showModal)
+            setShowModal(false);
+    };
     return (React.createElement("div", { className: classnames },
         label && (React.createElement("label", { className: styles.label },
             label,
@@ -70,8 +74,11 @@ function Select(props) {
         React.createElement("div", { className: styles.wrapper },
             !selected && placeholder && React.createElement("div", { className: styles.placeholder }, placeholder),
             selected && React.createElement("div", { className: styles.selected }, getLabel(selected)),
-            native && (React.createElement("select", __assign({ onChange: nativeOnChange, value: selected ? getValue(selected) : undefined, className: styles.nativeSelect }, rest), (options || []).map(function (d, index) { return (React.createElement("option", { key: index, value: getValue(d) }, getLabel(d))); }))),
-            !native && React.createElement(Button, { className: styles.nativeSelect, onClick: function () { return setShowModal(true); } }),
+            native && (React.createElement("select", __assign({ onChange: nativeOnChange, value: selected ? getValue(selected) : undefined, className: styles.nativeSelect }, rest), (options || []).map(function (d, index) { return (React.createElement("option", { key: index, value: getValue(d), style: { borderRadius: '8px', opacity: 1, backgroundColor: 'red' } }, getLabel(d))); }))),
+            !native && (React.createElement(Button, { className: styles.nativeSelect, onClick: function () {
+                    window.history.pushState('', '', window.location + '#select');
+                    setShowModal(true);
+                } })),
             loading && React.createElement("div", { className: styles.loading }),
             React.createElement(ArrowDown, null)),
         !!metaError(error) && React.createElement("div", { className: styles.errorLabel }, metaError(error)),
